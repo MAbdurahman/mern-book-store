@@ -40,7 +40,9 @@ app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 /************************* import all routes *************************/
+import homeRoute from '../routes/homePageRoute.js';
 
 /****************************** routes ******************************/
+app.use('/api/v1.0/', homeRoute);
 
 export default app;
