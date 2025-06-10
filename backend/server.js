@@ -23,7 +23,7 @@ const API_URL = process.env.API_ENV || "/api/v1.0/";
 const ADDENDUM = `\t\t...press Ctrl-C to terminate.\n`.white;
 
 /********************** connect MongoDB and Cloudinary **********************/
-// connectDatabase().then(() => {});
+connectDatabase().then(() => {});
 // connectCloudinary().then(() => {});
 
 /************************* app listening *************************/
