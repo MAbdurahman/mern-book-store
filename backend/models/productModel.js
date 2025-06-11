@@ -35,7 +35,7 @@ const productSchema = new Schema({
          required: [true, 'Product name is required!'],
          maxlength: [100, 'Product name cannot be more than 100']
       },
-      image: [{
+      images: [{
          public_id: {
             type: String,
             required: true
