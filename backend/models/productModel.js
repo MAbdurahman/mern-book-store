@@ -56,11 +56,11 @@ const productSchema = new Schema({
          required: [true, 'Product description is required']
       },
       price: {
-         type: Number,
+         type: String,
          trim: true,
          required: [true, 'Product price is required'],
          maxlength: [6, 'Product price cannot be more than 6 characters!'],
-         default: 0.00
+         default: '0.00'
       },
       numberInStock: {
          type: Number,
