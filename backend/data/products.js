@@ -1,4 +1,4 @@
-[
+const products = [
    {
       "productName": "The Great Gatsby",
       "images": [
@@ -271,4 +271,6 @@
       "numberOfReviews": 0,
       "reviews": []
    }
-]
+];
+
+export default products;

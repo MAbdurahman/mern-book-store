@@ -1,6 +1,7 @@
 /************************* imports *************************/
 import {model, Schema} from 'mongoose';
 
+/************************* schemas *************************/
 const reviewSchema = new Schema({
       user: {
          type: Schema.Types.ObjectId,
@@ -24,11 +25,6 @@ const reviewSchema = new Schema({
 );
 
 const productSchema = new Schema({
-      user: {
-         type: Schema.Types.ObjectId,
-         required: true,
-         ref: 'User'
-      },
       productName: {
          type: String,
          trim: true,
@@ -47,8 +43,8 @@ const productSchema = new Schema({
       }],
       category: {
          type: String,
-         required: [true, 'Select a category for the product'],
-         enum: ['course', 'template']
+         trim: true,
+         required: [true, 'Product category is required!'],
       },
       description: {
          type: String,
@@ -77,6 +73,15 @@ const productSchema = new Schema({
          type: Number,
          required: true,
          default: 0
+      },
+      user: {
+         type: Schema.Types.ObjectId,
+         required: true,
+         ref: 'User'
+      },
+      createdAt: {
+         type: Date,
+         default: Date.now
       }
    },
    {timestamps: true}
