@@ -12,6 +12,6 @@ router.get('/', getAllProducts);
 router.get('/:productId', getSingleProduct);
 router.put('/:productId', updateProduct);
 router.delete('/:productId', deleteProduct);
-
+router.post('/productId/reviews', createProductReview);
 
 export default router;
