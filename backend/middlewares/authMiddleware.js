@@ -4,7 +4,7 @@ import ErrorHandler from '../utils/errorHandlerUtils.js';
 import asyncHandler from '../utils/asyncHandlerUtils.js';
 import User from '../models/userModel.js';
 
-export const authenticatedUser = asyncHandler(async (req, res, next) => {
+export const authenticateUser = asyncHandler(async (req, res, next) => {
    const token = req.cookies?.book-store;
 
    if (!token) {

@@ -3,8 +3,8 @@ const products = [
       "productName": "The Great Gatsby",
       "images": [
          {
-            "public_id": "products/dsvbpny402gelwugv2le",
-            "url": "https://res.cloudinary.com/bookit/image/upload/v1608062030/products/dsvbpny402gelwugv2le.jpg"
+            "public_id": "mern-book-store/etb76t6ts93ldgspl0kz",
+            "url": "https://res.cloudinary.com/mdbdrrhm/image/upload/v1750238379/mern-book-store/etb76t6ts93ldgspl0kz.jpg"
          }
       ],
       "description":
@@ -20,8 +20,8 @@ const products = [
       "productName": "To Kill a Mockingbird",
       "images": [
          {
-            "public_id": "products/dsvbpny402gelwugv2le",
-            "url": "https://res.cloudinary.com/bookit/image/upload/v1608062030/products/dsvbpny402gelwugv2le.jpg"
+            "public_id": "mern-book-store/pjxixwk1z7edetcscx33",
+            "url": "https://res.cloudinary.com/mdbdrrhm/image/upload/v1750238382/mern-book-store/pjxixwk1z7edetcscx33.jpg"
          }
       ],
       "description":
@@ -37,8 +37,8 @@ const products = [
       "productName": "1984",
       "images": [
          {
-            "public_id": "products/dsvbpny402gelwugv2le",
-            "url": "https://res.cloudinary.com/bookit/image/upload/v1608062030/products/dsvbpny402gelwugv2le.jpg"
+            "public_id": "mern-book-store/qt0cbtjeqmcdztuuwd5z",
+            "url": "https://res.cloudinary.com/mdbdrrhm/image/upload/v1750238373/mern-book-store/qt0cbtjeqmcdztuuwd5z.jpg"
          }
       ],
       "description":
@@ -54,8 +54,8 @@ const products = [
       "productName": "Pride and Prejudice",
       "images": [
          {
-            "public_id": "products/dsvbpny402gelwugv2le",
-            "url": "https://res.cloudinary.com/bookit/image/upload/v1608062030/products/dsvbpny402gelwugv2le.jpg"
+            "public_id": "mern-book-store/mrqpknihhqtbudrsfy9j",
+            "url": "https://res.cloudinary.com/mdbdrrhm/image/upload/v1750238375/mern-book-store/mrqpknihhqtbudrsfy9j.jpg"
          }
       ],
       "description":
@@ -71,8 +71,8 @@ const products = [
       "productName": "Moby Dick",
       "images": [
          {
-            "public_id": "products/dsvbpny402gelwugv2le",
-            "url": "https://res.cloudinary.com/bookit/image/upload/v1608062030/products/dsvbpny402gelwugv2le.jpg"
+            "public_id": "mern-book-store/r9rydbwh6sdbrw1nbf0a",
+            "url": "https://res.cloudinary.com/mdbdrrhm/image/upload/v1750238374/mern-book-store/r9rydbwh6sdbrw1nbf0a.jpg"
          }
       ],
       "description":
@@ -88,8 +88,8 @@ const products = [
       "productName": "The Catcher in the Rye",
       "images": [
          {
-            "public_id": "products/dsvbpny402gelwugv2le",
-            "url": "https://res.cloudinary.com/bookit/image/upload/v1608062030/products/dsvbpny402gelwugv2le.jpg"
+            "public_id": "mern-book-store/xu209spkxd0utxxeb16w",
+            "url": "https://res.cloudinary.com/mdbdrrhm/image/upload/v1750238378/mern-book-store/xu209spkxd0utxxeb16w.jpg"
          }
       ],
       "description":
@@ -105,8 +105,8 @@ const products = [
       "productName": "The Nightingale",
       "images": [
          {
-            "public_id": "products/dsvbpny402gelwugv2le",
-            "url": "https://res.cloudinary.com/bookit/image/upload/v1608062030/products/dsvbpny402gelwugv2le.jpg"
+            "public_id": "mern-book-store/g0f5n0vrhwzs9eshghmz",
+            "url": "https://res.cloudinary.com/mdbdrrhm/image/upload/v1750238380/mern-book-store/g0f5n0vrhwzs9eshghmz.jpg"
          }
       ],
       "description":
@@ -122,8 +122,8 @@ const products = [
       "productName": "All the Light We Cannot See",
       "images": [
          {
-            "public_id": "products/dsvbpny402gelwugv2le",
-            "url": "https://res.cloudinary.com/bookit/image/upload/v1608062030/products/dsvbpny402gelwugv2le.jpg"
+            "public_id": "mern-book-store/nlb2ixwkjqfhbubjqlk0",
+            "url": "https://res.cloudinary.com/mdbdrrhm/image/upload/v1750238373/mern-book-store/nlb2ixwkjqfhbubjqlk0.jpg"
          }
       ],
       "description":
@@ -139,8 +139,8 @@ const products = [
       "productName": "The Book Thief",
       "images": [
          {
-            "public_id": "products/dsvbpny402gelwugv2le",
-            "url": "https://res.cloudinary.com/bookit/image/upload/v1608062030/products/dsvbpny402gelwugv2le.jpg"
+            "public_id": "mern-book-store/sa71idvxo9ualg9tnzoy",
+            "url": "https://res.cloudinary.com/mdbdrrhm/image/upload/v1750238377/mern-book-store/sa71idvxo9ualg9tnzoy.jpg"
          }
       ],
       "description":
@@ -156,8 +156,8 @@ const products = [
       "productName": "The Tattooist of Auschwitz",
       "images": [
          {
-            "public_id": "products/dsvbpny402gelwugv2le",
-            "url": "https://res.cloudinary.com/bookit/image/upload/v1608062030/products/dsvbpny402gelwugv2le.jpg"
+            "public_id": "mern-book-store/sgzkdm8x4qbmuxpsteeh",
+            "url": "https://res.cloudinary.com/mdbdrrhm/image/upload/v1750238382/mern-book-store/sgzkdm8x4qbmuxpsteeh.jpg"
          }
       ],
       "description":
@@ -173,8 +173,8 @@ const products = [
       "productName": "The Paris Architect",
       "images": [
          {
-            "public_id": "products/dsvbpny402gelwugv2le",
-            "url": "https://res.cloudinary.com/bookit/image/upload/v1608062030/products/dsvbpny402gelwugv2le.jpg"
+            "public_id": "mern-book-store/fajcfprq2vvmxp6m53f2",
+            "url": "https://res.cloudinary.com/mdbdrrhm/image/upload/v1750238381/mern-book-store/fajcfprq2vvmxp6m53f2.jpg"
          }
       ],
       "description":
@@ -190,8 +190,8 @@ const products = [
       "productName": "Animal Farm",
       "images": [
          {
-            "public_id": "products/dsvbpny402gelwugv2le",
-            "url": "https://res.cloudinary.com/bookit/image/upload/v1608062030/products/dsvbpny402gelwugv2le.jpg"
+            "public_id": "mern-book-store/morw5v6uu5zyichflshz",
+            "url": "https://res.cloudinary.com/mdbdrrhm/image/upload/v1750238373/mern-book-store/morw5v6uu5zyichflshz.jpg"
          }
       ],
       "description":
@@ -207,8 +207,8 @@ const products = [
       "productName": "Escape From Freedom",
       "images": [
          {
-            "public_id": "products/dsvbpny402gelwugv2le",
-            "url": "https://res.cloudinary.com/bookit/image/upload/v1608062030/products/dsvbpny402gelwugv2le.jpg"
+            "public_id": "mern-book-store/jbwx7ge8tipf7pxjwkge",
+            "url": "https://res.cloudinary.com/mdbdrrhm/image/upload/v1750238373/mern-book-store/jbwx7ge8tipf7pxjwkge.jpg"
          }
       ],
       "description":
@@ -224,8 +224,8 @@ const products = [
       "productName": "Mind, Self, and Society",
       "images": [
          {
-            "public_id": "products/dsvbpny402gelwugv2le",
-            "url": "https://res.cloudinary.com/bookit/image/upload/v1608062030/products/dsvbpny402gelwugv2le.jpg"
+            "public_id": "mern-book-store/vs480ehf1jc9hts3fgbc",
+            "url": "https://res.cloudinary.com/mdbdrrhm/image/upload/v1750238374/mern-book-store/vs480ehf1jc9hts3fgbc.jpg"
          }
       ],
       "description":
@@ -241,8 +241,8 @@ const products = [
       "productName": "Propaganda",
       "images": [
          {
-            "public_id": "products/dsvbpny402gelwugv2le",
-            "url": "https://res.cloudinary.com/bookit/image/upload/v1608062030/products/dsvbpny402gelwugv2le.jpg"
+            "public_id": "mern-book-store/trgydkqo5tu0h4x8qhev",
+            "url": "https://res.cloudinary.com/mdbdrrhm/image/upload/v1750238376/mern-book-store/trgydkqo5tu0h4x8qhev.jpg"
          }
       ],
       "description":
@@ -258,8 +258,8 @@ const products = [
       "productName": "Art Of War",
       "images": [
          {
-            "public_id": "products/dsvbpny402gelwugv2le",
-            "url": "https://res.cloudinary.com/bookit/image/upload/v1608062030/products/dsvbpny402gelwugv2le.jpg"
+            "public_id": "mern-book-store/w8jlaukkdbyav4q2u8m6",
+            "url": "https://res.cloudinary.com/mdbdrrhm/image/upload/v1750238377/mern-book-store/w8jlaukkdbyav4q2u8m6.jpg"
          }
       ],
       "description":

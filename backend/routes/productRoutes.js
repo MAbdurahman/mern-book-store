@@ -2,6 +2,7 @@
 import express from 'express';
 import {getAllProducts, getSingleProduct, createProduct, updateProduct, deleteProduct,
 createProductReview} from '../controllers/productController.js';
+import {authenticateUser, authorizeRole} from '../middlewares/authMiddleware.js';
 
 /************************* variables *************************/
 const router = express.Router();
