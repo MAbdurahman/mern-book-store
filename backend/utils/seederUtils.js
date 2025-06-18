@@ -30,7 +30,7 @@ const seedProducts = async () => {
 
       await Product.insertMany(sampleProducts);
       console.log(`  ➔  Seeded Data:  Successfully inserted to database!`.green.italic);
-      process.exit();
+      process.exit(0);
    } catch (err) {
       console.log(`  ➔  Seeded Data:  Error - ${err.message}`.red.italic);
       process.exit(1);
@@ -44,7 +44,7 @@ const deleteSeedProducts = async () => {
       await User.deleteMany();
 
       console.log(`  ➔  Seeded Data:  Successfully deleted from database!`.green.italic);
-      process.exit();
+      process.exit(0);
    } catch (err) {
       console.log(`  ➔  Seeded Data:  Error - ${err.message}`.red.italic);
       process.exit(1);
