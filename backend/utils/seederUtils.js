@@ -51,7 +51,7 @@ const deleteSeedProducts = async () => {
    }
 };
 
-if (process.argv[2] === '-d') {
+if (process.argv[2] === '-delete') {
    deleteSeedProducts().then(r => {});
 
 } else {

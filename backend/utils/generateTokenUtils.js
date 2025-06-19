@@ -1,15 +1,20 @@
 /************************* imports *************************/
 import jwt from 'jsonwebtoken';
 
-const generateToken = (res, userId) => {
-   const token = jwt.sign({ userId }, process.env.JWT_SECRET, {
-      expiresIn: process.env.JWT_EXPIRES,
+const generateToken = (res, user) => {
+   const token = jwt.sign({
+      id: user.id,
+      role: user.role,
+      email: user.email,
+      username: user.username
+   }, process.env.JWT_SECRET, {
+      expiresIn: process.env.JWT_LIFETIME
    });
 
    res.cookie('book-store', token, {
       history: true,
       sameSite: "strict",
-      maxAge: 30 * 24 * 60 * 60 * 1000,
+      maxAge: 90 * 24 * 60 * 60 * 1000,
    });
 }
 
