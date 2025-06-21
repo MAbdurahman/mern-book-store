@@ -72,7 +72,7 @@ export const signInUser = asyncHandler(async (req, res, next) => {
 
    const user = await User.findbyOne({email});
    if (!user) {
-      return next(new ErrorHandler('User does not exist!', 403));
+      return next(new ErrorHandler('User does not exist!', 404));
    }
 
    const matchedPassword = await user.matchPassword(password);
@@ -97,14 +97,75 @@ export const signOutUser = asyncHandler(async (req, res, next) => {
 });
 
 export const getUserProfile = asyncHandler(async (req, res, next) => {
-   const user = await User.findById(req.params.id);
+   const user = await User.findById(req.params.userId);
 
    if (!user) {
-      return next(new ErrorHandler(`User does not exist with Id: ${req.params.id}`));
+      return next(new ErrorHandler(`User does not exist with Id: ${req.params.userId}`, 404));
    }
 
    res.status(200).json({
       success: true,
       user: user,
    })
+});
+
+export const updateUserProfile = asyncHandler(async (req, res, next) => {
+      res.status(200).json({
+         success: true,
+         message: 'update user profile controller',
+         data: {}
+      });
+});
+
+export const updateUser = asyncHandler(async (req, res, next) => {
+
+   res.status(200).json({
+      success: true,
+      message: 'update user controller',
+      data: {}
+   })
+
+});
+
+export const deleteUser = asyncHandler(async (req, res, next) => {
+   const user = await User.findById(req.params.userId);
+
+   if (!user) {
+      return next(new ErrorHandler(`User does not exist with Id: ${req.params.userId}`, 404));
+   }
+
+   await user.remove();
+
+   res.status(200).json({
+      success: true,
+      message: 'Successfully deleted user!',
+   });
+});
+
+export const getAllUsers = asyncHandler(async (req, res, next) => {
+   const users = await User.find({});
+
+   if (!users) {
+      return next(new ErrorHandler(`Users resource does not exist!`, 404));
+   }
+
+   res.status(200).json({
+      success: true,
+      message: 'Successfully retrieved all users.',
+      users: users
+   });
+});
+
+export const getSingleUser = asyncHandler(async (req, res, next) => {
+   const user = await User.findById(req.params.userId).select("-password");
+
+   if (!user) {
+      return next(new ErrorHandler(`User does not exist with Id: ${req.params.userId}`, 404));
+   }
+
+   res.status(200).json({
+      success: true,
+      message: 'Successfully retrieved user!',
+      users: user
+   });
 });

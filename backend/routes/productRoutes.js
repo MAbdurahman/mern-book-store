@@ -8,11 +8,11 @@ import {authenticateUser, authorizeRole} from '../middlewares/authMiddleware.js'
 const router = express.Router();
 
 /************************** routes **************************/
-router.post('/', createProduct);
+router.post('/', authenticateUser, authorizeRole('admin'), createProduct);
 router.get('/', getAllProducts);
 router.get('/:productId', getSingleProduct);
-router.put('/:productId', updateProduct);
-router.delete('/:productId', deleteProduct);
-router.post('/productId/reviews', createProductReview);
+router.put('/:productId', authenticateUser, authorizeRole('admin'), updateProduct);
+router.delete('/:productId', authenticateUser, authorizeRole('admin'), deleteProduct);
+router.post('/productId/reviews', authenticateUser, createProductReview);
 
 export default router;

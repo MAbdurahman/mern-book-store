@@ -67,7 +67,7 @@ export const getSingleProduct = asyncHandler(async (req, res, next) => {
 });
 
 export const updateProduct = asyncHandler(async (req, res, next) => {
-   let product = await Product.findById(req.params.id);
+   let product = await Product.findById(req.params.productId);
 
    if (!product) {
       res.status(404).json({
@@ -107,7 +107,7 @@ export const updateProduct = asyncHandler(async (req, res, next) => {
    }
       req.body.images = imagesLinks;
 
-   product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+   product = await Product.findByIdAndUpdate(req.params.productId, req.body, {
       new: true,
       runValidators: true,
       useFindAndModify: false,
@@ -123,7 +123,7 @@ export const updateProduct = asyncHandler(async (req, res, next) => {
 
 
 export const deleteProduct = asyncHandler(async (req, res, next) => {
-   const product = await Product.findById(req.params.id);
+   const product = await Product.findById(req.params.productId);
 
    if (!product) {
       res.status(404).json({
@@ -150,7 +150,7 @@ export const deleteProduct = asyncHandler(async (req, res, next) => {
 export const createProductReview = asyncHandler(async (req, res, next) => {
    const { rating, comment } = req.body;
 
-   const product = await Product.findById(req.params.id);
+   const product = await Product.findById(req.params.productId);
 
    if (!product) {
       res.status(404).json({
