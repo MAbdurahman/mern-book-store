@@ -95,3 +95,16 @@ export const signOutUser = asyncHandler(async (req, res, next) => {
       message: 'Signed out successfully!',
    });
 });
+
+export const getUserProfile = asyncHandler(async (req, res, next) => {
+   const user = await User.findById(req.params.id);
+
+   if (!user) {
+      return next(new ErrorHandler(`User does not exist with Id: ${req.params.id}`));
+   }
+
+   res.status(200).json({
+      success: true,
+      user: user,
+   })
+});
