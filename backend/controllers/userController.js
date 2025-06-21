@@ -1,0 +1,97 @@
+/************************* imports *************************/
+import validator from 'validator';
+import User from '../models/userModel.js';
+import asyncHandler from '../utils/asyncHandlerUtils.js';
+import ErrorHandler from '../utils/errorHandlerUtils.js';
+import generateToken from '../utils/generateTokenUtils.js';
+import {
+   validateEmail,
+   validateName,
+   validatePassword
+} from '../utils/functionUtils.js';
+
+export const signUpUser = asyncHandler(async (req, res, next) => {
+   const {username, email, password} = req.body;
+
+   if (!username) {
+      return next(new ErrorHandler('Full name is required!', 400));
+   }
+   if (username.length > 33) {
+      return next(new ErrorHandler('Full name cannot exceed 32 characters!', 406));
+   }
+   if (!validateName()){
+      return next(new ErrorHandler('Enter your first and last name!', 406));
+   }
+
+   if (!email) {
+      return next(new ErrorHandler('Email is required!', 400));
+   }
+   if (!validateEmail(email)) {
+      return next(new ErrorHandler('Enter a valid email address!', 406));
+   }
+
+   if (!password) {
+      return next(new ErrorHandler('Password is required!', 400));
+   }
+   if (!validatePassword(password)) {
+      return next(new ErrorHandler('Password must contain at least 8 characters, a number, a symbol, a lowercase an uppercase letter!', 406));
+   }
+
+   const userAlreadyExists = await User.findOne({email});
+   if (userAlreadyExists) {
+      return next(new ErrorHandler('User already exists!', 409));
+   }
+
+   const user = await User.create({
+      username,
+      email,
+      password,
+   });
+
+   if (user) {
+      generateToken(res, user);
+      res.status(201).json({
+         _id: user._id,
+         username: user.username,
+         email: user.email,
+         role: user.role,
+      });
+   }
+
+});
+
+export const signInUser = asyncHandler(async (req, res, next) => {
+   const {email, password} = req.body;
+
+   if (!email) {
+      return next(new ErrorHandler('Email is required!', 400));
+   }
+   if (!password) {
+      return next(new ErrorHandler('Password is required!', 400));
+   }
+
+   const user = await User.findbyOne({email});
+   if (!user) {
+      return next(new ErrorHandler('User does not exist!', 403));
+   }
+
+   const matchedPassword = await user.matchPassword(password);
+   if (!matchedPassword) {
+      return next(new ErrorHandler('Invalid credentials!', 406));
+   }
+
+   generateToken(res, user);
+
+   res.status(200).json({
+      name: user.name,
+      email: user.email,
+      role: user.role
+   });
+});
+
+export const signOutUser = asyncHandler(async (req, res, next) => {
+   res.clearCookie('book-store').status(200).json({
+      success: true,
+      message: 'Signed out successfully!',
+   });
+});

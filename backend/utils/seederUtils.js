@@ -12,8 +12,7 @@ dotenv.config({path: 'backend/config/config.env'});
 colors.enabled = true;
 
 /********************** connect MongoDB and Cloudinary **********************/
-connectDatabase().then(() => {
-});
+connectDatabase().then(() => {});
 
 /********************** seed products to the database **********************/
 const seedProducts = async () => {
@@ -29,7 +28,7 @@ const seedProducts = async () => {
       });
 
       await Product.insertMany(sampleProducts);
-      console.log(`  ➔  Seeded Data:  Successfully inserted to database!`.green.italic);
+      console.log(`  ➔  Seeded Data:  Successfully inserted data to database!`.green.italic);
       process.exit(0);
    } catch (err) {
       console.log(`  ➔  Seeded Data:  Error - ${err.message}`.red.italic);
@@ -43,7 +42,7 @@ const deleteSeedProducts = async () => {
       await Product.deleteMany();
       await User.deleteMany();
 
-      console.log(`  ➔  Seeded Data:  Successfully deleted from database!`.green.italic);
+      console.log(`  ➔  Seeded Data:  Successfully deleted data from database!`.green.italic);
       process.exit(0);
    } catch (err) {
       console.log(`  ➔  Seeded Data:  Error - ${err.message}`.red.italic);
@@ -52,9 +51,12 @@ const deleteSeedProducts = async () => {
 };
 
 if (process.argv[2] === '-delete') {
-   deleteSeedProducts().then(r => {});
+   deleteSeedProducts().then(() => {});
+
+} else if (process.argv[2] === '-import') {
+   seedProducts().then(() => {});
 
 } else {
-   seedProducts().then(r => {});
-
+   console.log(`➔  Seeded Data: This command requires second argument to be '-delete' or '-import'!`.yellow.bold.italic);
+   process.exit(0);
 }
