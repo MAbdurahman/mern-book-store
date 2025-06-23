@@ -84,6 +84,7 @@ export const signInUser = asyncHandler(async (req, res, next) => {
    generateToken(res, user);
 
    res.status(200).json({
+      _id: user._id,
       username: user.username,
       email: user.email,
       role: user.role
@@ -98,16 +99,21 @@ export const signOutUser = asyncHandler(async (req, res, next) => {
 });
 
 export const getUserProfile = asyncHandler(async (req, res, next) => {
-   const user = await User.findById(req.params.userId);
+   const user = await User.findById(req.user._id);
 
    if (!user) {
-      return next(new ErrorHandler(`User does not exist with Id: ${req.params.userId}`, 404));
+      return next(new ErrorHandler(`User does not exist with Id: ${req.user._id}`, 404));
    }
-
    res.status(200).json({
       success: true,
-      user: user,
-   })
+      message: 'Successfully retrieved profile!',
+      data: {
+         _id: user._id,
+         username: user.username,
+         email: user.email,
+         role: user.role
+      }
+   });
 });
 
 export const updateUserProfile = asyncHandler(async (req, res, next) => {

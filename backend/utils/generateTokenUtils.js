@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 const generateToken = (res, user) => {
    const token = jwt.sign({
-      id: user._id,
+      _id: user._id,
       role: user.role,
       email: user.email,
       username: user.username
@@ -15,7 +15,7 @@ const generateToken = (res, user) => {
       history: true,
       sameSite: "strict",
       secure: process.env.NODE_ENV === 'production',
-      maxAge: process.env.JWT_LIFETIME * 24 * 60 * 60 * 1000,
+      maxAge: 400 * 24 * 60 * 60 * 1000,
    });
 }
 

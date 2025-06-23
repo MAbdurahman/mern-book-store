@@ -10,10 +10,10 @@ const router = express.Router();
 router.post('/sign-up', signUpUser);
 router.post('/sign-in', signInUser);
 router.post('/sign-out', signOutUser);
+router.get('/get-user-profile', authenticateUser, getUserProfile);
+router.put('/update-user-profile', authenticateUser, updateUserProfile);
 router.get('/get-all-users', authenticateUser, authorizeRole('admin'), getAllUsers);
 router.get('/get-user/:userId', authenticateUser, authorizeRole('admin'), getSingleUser);
-router.get('/get-user-profile/:userId', authenticateUser, getUserProfile);
-router.put('/update-user-profile', authenticateUser, updateUserProfile);
 router.put('/update-user/:userId', authenticateUser, authorizeRole('admin'), updateUser);
 router.delete('/delete-user/:userId', authenticateUser, authorizeRole('admin'), deleteUser);
 
