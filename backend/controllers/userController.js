@@ -9,6 +9,7 @@ import {
    validateName,
    validatePassword
 } from '../utils/functionUtils.js';
+import bcrypt from 'bcryptjs';
 
 export const signUpUser = asyncHandler(async (req, res, next) => {
    const {username, email, password} = req.body;
@@ -16,10 +17,10 @@ export const signUpUser = asyncHandler(async (req, res, next) => {
    if (!username) {
       return next(new ErrorHandler('Full name is required!', 400));
    }
-   if (username.length > 33) {
+   if (username.length >= 33) {
       return next(new ErrorHandler('Full name cannot exceed 32 characters!', 406));
    }
-   if (!validateName()){
+   if (!validateName(username)){
       return next(new ErrorHandler('Enter your first and last name!', 406));
    }
 
@@ -70,7 +71,7 @@ export const signInUser = asyncHandler(async (req, res, next) => {
       return next(new ErrorHandler('Password is required!', 400));
    }
 
-   const user = await User.findbyOne({email});
+   const user = await User.findOne({email});
    if (!user) {
       return next(new ErrorHandler('User does not exist!', 404));
    }
@@ -83,7 +84,7 @@ export const signInUser = asyncHandler(async (req, res, next) => {
    generateToken(res, user);
 
    res.status(200).json({
-      name: user.name,
+      username: user.username,
       email: user.email,
       role: user.role
    });
@@ -92,7 +93,7 @@ export const signInUser = asyncHandler(async (req, res, next) => {
 export const signOutUser = asyncHandler(async (req, res, next) => {
    res.clearCookie('book-store').status(200).json({
       success: true,
-      message: 'Signed out successfully!',
+      message: 'Successfully signed out!',
    });
 });
 
@@ -110,10 +111,46 @@ export const getUserProfile = asyncHandler(async (req, res, next) => {
 });
 
 export const updateUserProfile = asyncHandler(async (req, res, next) => {
+   const user = await User.findById(req.user._id);
+
+   if (!user) {
+      return next(new ErrorHandler('User does not exist!', 404));
+   }
+
+   if (req.body.username && req.body.username.length >= 33) {
+      return next(new ErrorHandler('Full name cannot exceed 32 characters!', 406));
+   }
+
+   if (req.body.username && !validateName(req.body.username)) {
+      return next(new ErrorHandler('Enter your first and last name!', 406));
+   }
+
+   if(req.body.email && !validateEmail(req.body.email)) {
+      return next(new ErrorHandler('Enter a valid email address!', 406));
+   }
+
+   if(req.body.password && !validatePassword(req.body.password)) {
+      return next(new ErrorHandler('Password must contain at least 8 characters, a number, a symbol, a lowercase and uppercase letter!', 406));
+   }
+   user.username = req.body.username || user.username;
+   user.email = req.body.email || user.email;
+
+   if (req.body.password) {
+      user.password = req.body.password;
+   }
+
+   const updatedUser = await user.save();
+
+
       res.status(200).json({
          success: true,
-         message: 'update user profile controller',
-         data: {}
+         message: 'Successfully updated user!',
+         data: {
+            _id: updatedUser._id,
+            username: updatedUser.username,
+            email: updatedUser.email,
+            role: updatedUser.role,
+         }
       });
 });
 

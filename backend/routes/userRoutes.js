@@ -7,15 +7,15 @@ import {authenticateUser, authorizeRole} from '../middlewares/authMiddleware.js'
 const router = express.Router();
 
 /************************** routes **************************/
-router.post('/', signUpUser);
-router.post('/', signInUser);
-router.get('/', signOutUser);
-router.get('/', authenticateUser, authorizeRole('admin'), getAllUsers);
-router.get('/:userId', authenticateUser, authorizeRole('admin'), getSingleUser);
-router.get('/:userId', authenticateUser, getUserProfile);
-router.put('/:userId', authenticateUser, updateUserProfile);
-router.put('/:userId', authenticateUser, authorizeRole('admin'), updateUser);
-router.delete('/:userId', authenticateUser, authorizeRole('admin'), deleteUser);
+router.post('/sign-up', signUpUser);
+router.post('/sign-in', signInUser);
+router.post('/sign-out', signOutUser);
+router.get('/get-all-users', authenticateUser, authorizeRole('admin'), getAllUsers);
+router.get('/get-user/:userId', authenticateUser, authorizeRole('admin'), getSingleUser);
+router.get('/get-user-profile/:userId', authenticateUser, getUserProfile);
+router.put('/update-user-profile', authenticateUser, updateUserProfile);
+router.put('/update-user/:userId', authenticateUser, authorizeRole('admin'), updateUser);
+router.delete('/delete-user/:userId', authenticateUser, authorizeRole('admin'), deleteUser);
 
 
 

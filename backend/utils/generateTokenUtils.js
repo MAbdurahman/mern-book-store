@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 const generateToken = (res, user) => {
    const token = jwt.sign({
-      id: user.id,
+      id: user._id,
       role: user.role,
       email: user.email,
       username: user.username
@@ -11,10 +11,11 @@ const generateToken = (res, user) => {
       expiresIn: process.env.JWT_LIFETIME
    });
 
-   res.cookie('book-store', token, {
+   res.cookie('book_store', token, {
       history: true,
       sameSite: "strict",
-      maxAge: 90 * 24 * 60 * 60 * 1000,
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: process.env.JWT_LIFETIME * 24 * 60 * 60 * 1000,
    });
 }
 
