@@ -160,31 +160,6 @@ export const updateUserProfile = asyncHandler(async (req, res, next) => {
       });
 });
 
-export const updateUser = asyncHandler(async (req, res, next) => {
-
-   res.status(200).json({
-      success: true,
-      message: 'update user controller',
-      data: {}
-   })
-
-});
-
-export const deleteUser = asyncHandler(async (req, res, next) => {
-   const user = await User.findById(req.params.userId);
-
-   if (!user) {
-      return next(new ErrorHandler(`User does not exist with Id: ${req.params.userId}`, 404));
-   }
-
-   await user.remove();
-
-   res.status(200).json({
-      success: true,
-      message: 'Successfully deleted user!',
-   });
-});
-
 export const getAllUsers = asyncHandler(async (req, res, next) => {
    const users = await User.find({});
 
@@ -195,7 +170,9 @@ export const getAllUsers = asyncHandler(async (req, res, next) => {
    res.status(200).json({
       success: true,
       message: 'Successfully retrieved all users.',
-      users: users
+      data: {
+         users
+      }
    });
 });
 
@@ -209,6 +186,61 @@ export const getSingleUser = asyncHandler(async (req, res, next) => {
    res.status(200).json({
       success: true,
       message: 'Successfully retrieved user!',
-      users: user
+      data: {
+         user
+      }
+   });
+});
+
+export const updateUser = asyncHandler(async (req, res, next) => {
+   const user = await User.findById(req.params.userId);
+
+   if (!user) {
+      return next(new ErrorHandler(`User is not found with id: ${req.params.id}`));
+   }
+
+   if (req.body.username && req.body.username.length >= 33) {
+      return next(new ErrorHandler('Full name cannot exceed 32 characters!', 406));
+   }
+
+   if (req.body.username && !validateName(req.body.username)) {
+      return next(new ErrorHandler('Enter your first and last name!', 406));
+   }
+
+   if(req.body.email && !validateEmail(req.body.email)) {
+      return next(new ErrorHandler('Enter a valid email address!', 406));
+   }
+
+   user.username = req.body.username || user.username;
+   user.email = req.body.email || user.email;
+   user.role = req.body.role || user.role;
+
+   const updatedUser = await user.save();
+
+   res.status(200).json({
+      success: true,
+      message: 'Successfully updated user!',
+      data: {
+         _id: updatedUser._id,
+         name: updatedUser.name,
+         email: updatedUser.email,
+         role: updatedUser.role,
+      }
+   });
+});
+
+export const deleteUser = asyncHandler(async (req, res, next) => {
+   const user = await User.findById(req.params.userId);
+
+   if (!user) {
+      return next(new ErrorHandler(`User does not exist with Id: ${req.params.userId}`, 404));
+   }
+
+   await User.deleteOne({ _id: user._id });
+
+   res.status(200).json({
+      success: true,
+      message: 'Successfully deleted user!',
+      data: {}
    });
 });
