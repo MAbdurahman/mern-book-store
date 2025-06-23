@@ -6,7 +6,6 @@ import User from '../models/userModel.js';
 
 export const authenticateUser = asyncHandler(async (req, res, next) => {
    const token = req.cookies.book_store;
-   console.log(token);
 
    if (!token) {
       return next(new ErrorHandler('Login required!', 401));
