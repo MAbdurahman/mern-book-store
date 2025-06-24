@@ -210,10 +210,17 @@ export const updateUser = asyncHandler(async (req, res, next) => {
    if(req.body.email && !validateEmail(req.body.email)) {
       return next(new ErrorHandler('Enter a valid email address!', 406));
    }
+   if(req.body.password && !validatePassword(req.body.password)) {
+      return next(new ErrorHandler('Password must contain at least 8 characters, a number, a symbol, a lowercase and uppercase letter!', 406));
+   }
 
    user.username = req.body.username || user.username;
    user.email = req.body.email || user.email;
    user.role = req.body.role || user.role;
+
+   if (req.body.password) {
+      user.password = req.body.password;
+   }
 
    const updatedUser = await user.save();
 
