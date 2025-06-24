@@ -92,7 +92,7 @@ export const signInUser = asyncHandler(async (req, res, next) => {
 });
 
 export const signOutUser = asyncHandler(async (req, res, next) => {
-   res.clearCookie('book-store').status(200).json({
+   res.clearCookie('book_store').status(200).json({
       success: true,
       message: 'Successfully signed out!',
    });
@@ -229,7 +229,7 @@ export const updateUser = asyncHandler(async (req, res, next) => {
       message: 'Successfully updated user!',
       data: {
          _id: updatedUser._id,
-         name: updatedUser.name,
+         username: updatedUser.username,
          email: updatedUser.email,
          role: updatedUser.role,
       }
