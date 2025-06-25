@@ -1,1 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Noto+Sans+Mono&display=swap');
 @import "tailwindcss";
+
+
+@theme {
+   --font-body: 'Montserrat', sans-serif;
+   --font-mono: 'Noto Sans Mono', monospace;
+
+   --color-neutral-000: hsl(210, 0%, 98%);
+   --color-neutral-100: hsl(210, 0%, 88%);
+   --color-neutral-200: hsl(210, 0%, 78%);
+   --color-neutral-300: hsl(210, 0%, 68%);
+   --color-neutral-400: hsl(210, 0%, 58%);
+   --color-neutral-500: hsl(210, 0%, 48%);
+   --color-neutral-600: hsl(210, 0%, 38%);
+   --color-neutral-700: hsl(210, 0%, 28%);
+   --color-neutral-800: hsl(210, 0%, 18%);
+   --color-neutral-900: hsl(210, 0%, 10%);
+
+   --color-augmented-000: hsl(210, 12%, 98%);
+   --color-augmented-100: hsl(210, 12%, 88%);
+   --color-augmented-200: hsl(210, 12%, 78%);
+   --color-augmented-300: hsl(210, 15%, 68%);
+   --color-augmented-400: hsl(210, 15%, 58%);
+   --color-augmented-500: hsl(210, 15%, 48%);
+   --color-augmented-600: hsl(210, 15%, 38%);
+   --color-augmented-700: hsl(210, 20%, 28%);
+   --color-augmented-800: hsl(210, 25%, 18%);
+   --color-augmented-900: hsl(210, 30%, 10%);
+
+   --color-semantic-a-400: hsl(0, 96%, 33%);
+   --color-semantic-a-300: hsl(0, 96%, 38%);
+   --color-semantic-a-200: hsl(0, 96%, 43%);
+   --color-semantic-a-100: hsl(0, 96%, 48%);
+
+   --color-semantic-i-400: hsl(215, 96%, 33%);
+   --color-semantic-i-300: hsl(215, 96%, 38%);
+   --color-semantic-i-200: hsl(215, 96%, 43%);
+   --color-semantic-i-100: hsl(215, 96%, 48%);
+
+   --color-semantic-s-400: hsl(100, 96%, 33%);
+   --color-semantic-s-300: hsl(100, 96%, 38%);
+   --color-semantic-s-200: hsl(100, 96%, 43%);
+   --color-semantic-s-100: hsl(100, 96%, 48%);
+
+   --color-semantic-w-400: hsl(48, 96%, 50%);
+   --color-semantic-w-300: hsl(48, 96%, 55%);
+   --color-semantic-w-200: hsl(48, 96%, 60%);
+   --color-semantic-w-100: hsl(48, 96%, 65%);
+
+   --ease-basic-01: cubic-bezier(0.26, 0.1, 0.27, 1.55);
+   --ease-basic-02: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+   --ease: cubic-bezier(0.19, 0.08, 0.46, 0.99);
+   --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+   --ease-in: cubic-bezier(0.33, 0.02, 0.84, 0.75);
+   --ease-out: cubic-bezier(0.05, 0.21, 0.66, 0.98);
+   --ease-in-out: cubic-bezier(0.38, 0, 0.57, 0.99);
+   --ease-linear: cubic-bezier(0.19, 0.08, 0.84, 0.75);
+   --ease-smooth: cubic-bezier(0.1, 0.7, 0.6, 0.9);
+   --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+   --ease-snappy-01: cubic-bezier(0.5, 0, 0.4, 0.98);
+   --ease-snappy-02: cubic-bezier(.17, .67, .83, .67);
+
+   --radius-000: 1px;
+   --radius-100: 2px;
+   --radius-200: 3px;
+   --radius-300: 5px;
+   --radius-400: 8px;
+   --radius-500: 13px;
+   --radius-600: 21px;
+   --radius-700: 34px;
+   --radius-800: 55px;
+   --radius-900: 50%;
+
+   --breakpoint-3xl: 1920px;
+
+}
+
+@layer utilities {
+   .line-through {
+      text-decoration-thickness: 5px;
+   }
+}
+
+@layer base {
+   * {
+      /*@apply border-border outline-ring/50;*/
+   }
+   body {
+      font-family: var(--font-body), sans-serif;
+      font-weight: 400;
+      font-optical-sizing: auto;
+      line-height: 1.5;
+      /*@apply bg-background text-foreground;*/
+   }
+   select {
+      font-family: var(--font-mono), monospace;
+      border-color: var(--color-neutral-700) !important;
+   }
+   button {
+      cursor: pointer;
+   }
+}
+
+body {
+   overflow: hidden;
+   font-family: var(--font-body), sans-serif;
+   font-weight: normal;
+   line-height: 1.5;
+}
+
+
+input {
+   border-color: var(--color-neutral-700);
+}
+textarea {
+   border-color: var(--color-neutral-700);
+}
+.select {
+   border-color: var(--color-neutral-700);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+input[type=number] {
+   -moz-appearance: textfield;
+}
+
+
+.move-in-from-right {
+   animation-name: move-in-from-right;
+   animation-duration: 1s;
+   animation-iteration-count: 1;
+   animation-timing-function: cubic-bezier(0.19, 0.08, 0.46, 0.99);
+}
+
+.exit-to-left {
+   animation-name: exit-to-left;
+   animation-duration: 1s;
+   animation-iteration-count: 1;
+   animation-timing-function: cubic-bezier(0.19, 0.08, 0.46, 0.99);
+   animation-fill-mode: forwards;
+}
+
+@keyframes move-in-from-right {
+   0% {
+      opacity: 0;
+      transform: translateX(2000px);
+   }
+   60% {
+      opacity: 1;
+      transform: translateX(-50px);
+   }
+   80% {
+      transform: translateX(10px);
+   }
+   100% {
+      transform: translateX(0);
+   }
+}
+
+@keyframes exit-to-left {
+   0% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+   50% {
+      transform: translateX(50px);
+   }
+   100% {
+      transform: translateX(-2000px);
+   }
+}
+
+.utils-center-text {
+   text-align: center;
+}
+
+.utils-notify {
+   min-width: 320px;
+   max-width: 320px;
+}
