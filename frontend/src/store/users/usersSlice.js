@@ -1,6 +1,6 @@
+/************************* imports *************************/
 import {apiSlice} from '../api/apiSlice.js';
 import {USERS_URL} from '../../constants/constants.js';
-import {data} from 'react-router-dom';
 
 export const usersSlice = apiSlice.injectEndpoints({
    endpoints: (builder) => ({
