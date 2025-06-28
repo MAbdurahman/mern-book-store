@@ -9,7 +9,7 @@ import {
    validateName,
    validatePassword
 } from '../utils/functionUtils.js';
-import bcrypt from 'bcryptjs';
+
 
 export const signUpUser = asyncHandler(async (req, res, next) => {
    const {username, email, password} = req.body;
