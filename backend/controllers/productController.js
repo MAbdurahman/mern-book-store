@@ -1,5 +1,6 @@
 import {v2 as cloudinary} from 'cloudinary';
 import Product from './../models/productModel.js';
+import Order from './../models/orderModel.js';
 import asyncHandler from '../utils/asyncHandlerUtils.js';
 import ErrorHandler from './../utils/errorHandlerUtils.js';
 
@@ -167,9 +168,17 @@ export const createProductReview = asyncHandler(async (req, res, next) => {
       return next(new ErrorHandler(`Product does not exist with Id: ${re.params.productId}`, 404));
    }
 
+   const userOrders = await Order.find({user: req.user._id});
+   const orderedItems = [].concat.apply([], userOrders.map(userOrder => userOrder.orderedItems.map(orderedItem => orderedItem.product.toString())));
+
+   const hasBought = orderedItems.includes(product._id.toString());
+   if (!hasBought) {
+      return next(new ErrorHandler('User can only review products purchased!', 400));
+   }
+
    const alreadyReviewed = product.reviews.find(review => review.user.toString() === req.user._id.toString());
    if (alreadyReviewed) {
-      return next(new ErrorHandler(`Product has already been reviewed with Id: ${req.params.productId}`, 404));
+      return next(new ErrorHandler(`Product has already been reviewed with Id: ${req.params.productId}`, 400));
 
    }
 
