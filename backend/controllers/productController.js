@@ -173,7 +173,7 @@ export const createProductReview = asyncHandler(async (req, res, next) => {
 
    const hasBought = orderedItems.includes(product._id.toString());
    if (!hasBought) {
-      return next(new ErrorHandler('User can only review products purchased!', 400));
+      return next(new ErrorHandler('User can only review a product purchased!', 400));
    }
 
    const alreadyReviewed = product.reviews.find(review => review.user.toString() === req.user._id.toString());
