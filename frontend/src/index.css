@@ -113,8 +113,20 @@ body {
 input {
    border-color: var(--color-neutral-700);
 }
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+   font-family: 'Noto Sans Mono', monospace;;
+}
+
+input[type=number] {
+   -moz-appearance: textfield;
+}
+
 textarea {
    border-color: var(--color-neutral-700);
+   font-family: 'Noto Sans Mono', monospace;
 }
 .select {
    border-color: var(--color-neutral-700);
