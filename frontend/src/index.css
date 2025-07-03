@@ -6,6 +6,15 @@
    --font-body: 'Montserrat', sans-serif;
    --font-mono: 'Noto Sans Mono', monospace;
 
+   --color-primary: hsl(19, 16.76%, 33.92%);
+   --color-secondary: hsl(19, 37.44%, 58.63%);
+
+   --color-primary-100: hsl(19, 25.29%, 34.12%);
+   --color-primary-200: hsl(19, 17.5%, 47.06%);
+   --color-primary-300: hsl(19, 15.32%, 56.47%);
+   --color-primary-400: hsl(19, 15.79%, 81.37%);
+   --color-primary-500: hsl(19, 0%, 96.08%);
+
    --color-neutral-000: hsl(210, 0%, 98%);
    --color-neutral-100: hsl(210, 0%, 88%);
    --color-neutral-200: hsl(210, 0%, 78%);
@@ -117,7 +126,7 @@ input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
    -webkit-appearance: none;
    margin: 0;
-   font-family: 'Noto Sans Mono', monospace;;
+   font-family: 'Noto Sans Mono', monospace;
 }
 
 input[type=number] {
