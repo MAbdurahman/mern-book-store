@@ -95,6 +95,18 @@
    * {
       /*@apply border-border outline-ring/50;*/
    }
+   *,
+   *::after,
+   *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: inherit;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+   }
    body {
       font-family: var(--font-body), sans-serif;
       font-weight: 400;
