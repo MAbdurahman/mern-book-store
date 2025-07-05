@@ -107,6 +107,15 @@
       -o-user-select: none;
       user-select: none;
    }
+
+   *::-moz-focus-inner {
+      border: 0;
+   }
+
+   *:focus {
+      outline: none;
+   }
+
    body {
       font-family: var(--font-body), sans-serif;
       font-weight: 400;
@@ -114,6 +123,16 @@
       line-height: 1.5;
       /*@apply bg-background text-foreground;*/
    }
+
+   ul {
+      list-style: none;
+
+   }
+
+   a {
+      text-decoration: none;
+   }
+
    select {
       font-family: var(--font-mono), monospace;
       border-color: var(--color-neutral-700) !important;
