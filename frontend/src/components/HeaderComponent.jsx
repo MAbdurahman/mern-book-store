@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useNavigate, Link} from 'react-router-dom';
-import { useSelector, useDispatch } from "react-redux";
+import {useSelector, useDispatch} from 'react-redux';
 import {useSignOutMutation} from '../store/users/usersSlice.js';
 import {signOut} from '../store/auth/authSlice.js';
 import {getFirstName} from '../utils/functionsUtils.js';
@@ -10,13 +10,14 @@ import {
    FaChevronDown,
    FaSignOutAlt,
    FaBars,
-   FaTimes,
-} from "react-icons/fa";
+   FaTimes
+} from 'react-icons/fa';
 
 
 export default function HeaderComponent() {
    const dispatch = useDispatch();
    const navigate = useNavigate();
+
    const {userInfo} = useSelector((state) => state.auth);
    const [signOutApiCall] = useSignOutMutation();
 
@@ -26,41 +27,41 @@ export default function HeaderComponent() {
    const cartItems = 0;
 
 
-  async function handleSignOut() {
-     console.log('handleSignOut');
-     try {
-     await signOutApiCall().unwrap();
-     dispatch(signOut());
-     navigate('/sign-in');
+   async function handleSignOut() {
+      console.log('handleSignOut');
+      try {
+         await signOutApiCall().unwrap();
+         dispatch(signOut());
+         navigate('/sign-in');
 
-     } catch(err) {
-        console.log(`Error: ${err.message}`);
+      } catch (err) {
+         console.log(`Error: ${err.message}`);
 
-     }
-  }
+      }
+   }
 
    return (
-      <header className="bg-primary-100 text-neutral-000">
-         <div className="container mx-auto flex items-center justify-between p-4">
-            <Link to="/" className="flex items-center gap-2 text-lg font-bold">
-               <img src="/img/logo.png" alt="logo" className="h-8" />
-               <h4>E-BookStore</h4>
+      <header className="bg-augmented-200 text-augmented-600">
+         <div className="container mx-auto flex items-center justify-between px-4 py-4">
+            <Link to="/" className="flex items-center gap-2 text-lg font-semibold">
+               <img src="/img/logo.png" alt="logo" className="h-12"/>
             </Link>
-            <div className="md:hidden">
+            <div className="md:hidden mr-4">
                <button onClick={() => setOpenMenu(!openMenu)}>
-                  {openMenu ? <FaTimes size={24} /> : <FaBars size={24} />}
+                  {openMenu ? <FaTimes size={24}/> : <FaBars size={24}/>}
                </button>
             </div>
-            <div className={`${openMenu ? "block" : "hidden"} md:flex md:items-center md:gap-4 absolute md:relative top-16 md:top-0 left-0 w-full md:w-auto bg-primary md:bg-transparent z-50`}
+            <div
+               className={`${openMenu ? 'block' : 'hidden'} md:flex md:items-center md:gap-4 absolute md:relative top-16 md:top-0 left-0 w-full md:w-auto bg-augmented-200 md:bg-transparent z-50 font-semibold tracking-wide mr-40`}
             >
                <Link
                   className="relative flex items-center gap-2 p-2 md:p-0"
                   to="/cart"
                >
-                  <FaShoppingCart /> Cart
+                  <FaShoppingCart/> Cart
                   {cartItems.length > 0 && (
                      <span
-                        className="absolute -top-2 -right-2 bg-green-500 text-white text-xs
+                        className="absolute -top-2 -right-2 bg-augmented-200 text-augmented-600 text-xs
                 w-4 h-4 flex items-center justify-center rounded-full max-sm:left-12 max-sm:top-0
                 "
                      >
@@ -72,42 +73,43 @@ export default function HeaderComponent() {
                   <div className=" relative">
                      <Link
                         to="/get-user-profile"
-                        className=" flex items-center gap-1 p-2 md:p-0 focus:outline-none"
+                        className=" flex items-center gap-2 p-2 md:p-0 focus:outline-none"
                      >
-                        <FaUser /> {getFirstName(userInfo.username)}
+                        <FaUser/> {getFirstName(userInfo.username)}
                      </Link>
                   </div>
                ) : (
-                  <Link to="/sign-in" className="flex items-center gap-1 p-2 md:p-0">
-                     <FaUser /> Sign In
+                  <Link to="/sign-in" className="flex items-center gap-2 p-2 md:p-0">
+                     <FaUser/> Sign In
                   </Link>
                )}
-               {userInfo && userInfo.role === "admin" && (
+               {userInfo && userInfo.role === 'admin' && (
                   <div className=" relative">
                      <button
-                        onClick={()=> setOpenAdminMenu(!openAdminMenu)}
+                        onClick={() => setOpenAdminMenu(!openAdminMenu)}
                         className=" flex items-center gap-1 border border-gray-300 rounded-md hover:border-gray-500 hover:bg-gray-100 hover:text-black transition-all p-1 max-md:mx-2">
                         {getFirstName(userInfo.username)}
-                        <FaChevronDown className="mt-0.5" />
+                        <FaChevronDown className="mt-0.5"/>
                      </button>
                      {openAdminMenu && (
-                        <div className=" absolute right-0 mt-2 w-48 bg-white text-gray-700 shadow-lg rounded-lg z-50">
+                        <div
+                           className=" absolute right-0 mt-2 w-48 bg-white text-gray-700 shadow-lg rounded-lg z-50">
                            <Link
-                              to="/admin/productlist"
+                              to="/admin/products-list"
                               className="block px-4 py-2 hover:bg-gray-100"
                               onClick={() => setOpenAdminMenu(false)}
                            >
                               Products
                            </Link>
                            <Link
-                              to="/admin/orderlist"
+                              to="/admin/orders-list"
                               className="block px-4 py-2 hover:bg-gray-100"
                               onClick={() => setOpenAdminMenu(false)}
                            >
                               Orders
                            </Link>
                            <Link
-                              to="/admin/userlist"
+                              to="/admin/users-list"
                               className="block px-4 py-2 hover:bg-gray-100"
                               onClick={() => setOpenAdminMenu(false)}
                            >
@@ -118,11 +120,11 @@ export default function HeaderComponent() {
                   </div>
                )}
                {userInfo ? (
-                  <Link onClick={handleSignOut} className=" p-2">
-                     <FaSignOutAlt />
-                  </Link>
+                  <button onClick={handleSignOut} className=" p-2">
+                     <FaSignOutAlt/>
+                  </button>
                ) : (
-                  ""
+                  ''
                )}
             </div>
          </div>
