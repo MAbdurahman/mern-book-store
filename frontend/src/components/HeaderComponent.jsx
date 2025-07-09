@@ -42,17 +42,17 @@ export default function HeaderComponent() {
 
    return (
       <header className="bg-augmented-200 text-augmented-600">
-         <div className="container mx-auto flex items-center justify-between px-4 py-4">
-            <Link to="/" className="flex items-center gap-2 text-lg font-semibold">
+         <div className="container flex items-center justify-around md:mx-auto md:flex md:items-center md:justify-between md:p-4">
+            <Link to="/" className="relative left-0 pt-4 pr-4 pb-4 -ml-2 text-lg font-semibold md:pl-12">
                <img src="/img/logo.png" alt="logo" className="h-12"/>
             </Link>
-            <div className="md:hidden mr-4">
+            <div className="md:hidden">
                <button onClick={() => setOpenMenu(!openMenu)}>
                   {openMenu ? <FaTimes size={24}/> : <FaBars size={24}/>}
                </button>
             </div>
             <div
-               className={`${openMenu ? 'block' : 'hidden'} md:flex md:items-center md:gap-4 absolute md:relative top-16 md:top-0 left-0 w-full md:w-auto bg-augmented-200 md:bg-transparent z-50 font-semibold tracking-wide mr-40`}
+               className={`${openMenu ? 'block' : 'hidden'} md:flex md:items-center md:gap-4 absolute md:relative top-16 md:top-0 left-0 w-full md:w-auto bg-augmented-200 md:bg-transparent z-50 font-semibold tracking-wide md:pr-20`}
             >
                <Link
                   className="relative flex items-center gap-2 p-2 md:p-0"
