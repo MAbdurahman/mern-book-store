@@ -41,7 +41,7 @@ export default function HeaderComponent() {
    }
 
    return (
-      <header className="bg-augmented-200 text-augmented-600">
+      <header className="min-w-fit bg-augmented-200 text-augmented-600">
          <div className="container flex items-center justify-around md:mx-auto md:flex md:items-center md:justify-between md:p-4">
             <Link to="/" className="relative left-0 pt-4 pr-4 pb-4 -ml-2 text-lg font-semibold md:pl-12">
                <img src="/img/logo.png" alt="logo" className="h-12"/>

@@ -95,6 +95,7 @@
    * {
       /*@apply border-border outline-ring/50;*/
    }
+
    *,
    *::after,
    *::before {
@@ -116,13 +117,23 @@
       outline: none;
    }
 
+   html {
+      min-width: 100dvw;
+      max-width: 100dvw;
+      min-height: 100dvh;
+      max-height: 100dvh;
+   }
+
    body {
+      min-width: 100dvw;
+      max-width: 100dvw;
+      overflow: hidden;
       font-family: var(--font-body), sans-serif;
       font-weight: 400;
       font-optical-sizing: auto;
       line-height: 1.5;
-      /*@apply bg-background text-foreground;*/
    }
+
 
    ul {
       list-style: none;
@@ -137,22 +148,16 @@
       font-family: var(--font-mono), monospace;
       border-color: var(--color-neutral-700) !important;
    }
+
    button {
       cursor: pointer;
    }
 }
 
-body {
-   overflow: hidden;
-   font-family: var(--font-body), sans-serif;
-   font-weight: normal;
-   line-height: 1.5;
-}
-
-
 input {
    border-color: var(--color-neutral-700);
 }
+
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
    -webkit-appearance: none;
@@ -168,6 +173,7 @@ textarea {
    border-color: var(--color-neutral-700);
    font-family: 'Noto Sans Mono', monospace;
 }
+
 .select {
    border-color: var(--color-neutral-700);
 }
@@ -177,6 +183,7 @@ input::-webkit-inner-spin-button {
    -webkit-appearance: none;
    margin: 0;
 }
+
 input[type=number] {
    -moz-appearance: textfield;
 }
