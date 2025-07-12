@@ -52,13 +52,13 @@ export default function HeaderComponent() {
                </button>
             </div>
             <div
-               className={`${openMenu ? 'block' : 'hidden'} md:flex md:items-center md:gap-4 absolute md:relative top-16 md:top-0 left-0 w-full md:w-auto bg-augmented-200 md:bg-transparent z-50 font-semibold tracking-wide md:pr-20`}
+               className={`${openMenu ? 'block' : 'hidden'} navbar_menu md:flex md:items-center md:gap-4 absolute md:relative top-16 md:top-0 left-0 w-full md:w-auto bg-augmented-200 md:bg-transparent z-50 font-semibold tracking-wide md:pr-20`}
             >
                <Link
                   className="relative flex items-center gap-2 p-2 md:p-0"
                   to="/cart"
                >
-                  <FaShoppingCart/> Cart
+                  <FaShoppingCart size={20}/> Cart
                   {cartItems.length > 0 && (
                      <span
                         className="absolute -top-2 -right-2 bg-augmented-200 text-augmented-600 text-xs
@@ -75,7 +75,7 @@ export default function HeaderComponent() {
                         to="/get-user-profile"
                         className=" flex items-center gap-2 p-2 md:p-0 focus:outline-none"
                      >
-                        <FaUser/> {getFirstName(userInfo.username)}
+                        <FaUser /> {getFirstName(userInfo.username)}
                      </Link>
                   </div>
                ) : (

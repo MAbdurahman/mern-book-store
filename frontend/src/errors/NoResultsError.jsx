@@ -1,4 +1,4 @@
-import NoResultsImage from '../../assets/img/no-results.png';
+import NoResultsImage from '../assets/img/no-results.png';
 
 export default function NoResultsError() {
    return (

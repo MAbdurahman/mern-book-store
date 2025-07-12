@@ -1,4 +1,4 @@
-import ForbiddenErrorImage from '@/assets/img/forbidden.png';
+import ForbiddenErrorImage from '../assets/img/forbidden.png';
 
 
 export default function ForbiddenError() {

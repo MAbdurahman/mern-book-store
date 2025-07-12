@@ -1,4 +1,4 @@
-import EmptyCartImage from '@/assets/img/empty-cart.png';
+import EmptyCartImage from '../assets/img/empty-cart.png';
 
 
 export default function EmptyCartError() {
