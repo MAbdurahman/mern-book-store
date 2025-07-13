@@ -70,6 +70,14 @@
    --ease-snappy-01: cubic-bezier(0.5, 0, 0.4, 0.98);
    --ease-snappy-02: cubic-bezier(.17, .67, .83, .67);
 
+   --font-weight-thin: 100;
+   --font-weight-light: 300;
+   --font-weight-normal: 400;
+   --font-weight-medium: 500;
+   --font-weight-semibold: 600;
+   --font-weight-bold: 700;
+   --font-weight-bolder: 900;
+
    --radius-000: 1px;
    --radius-100: 2px;
    --radius-200: 3px;
@@ -129,7 +137,6 @@
       font-optical-sizing: auto;
       line-height: 1.5;
    }
-
 
    ul {
       list-style: none;
