@@ -53,10 +53,10 @@ const deleteSeedProducts = async () => {
 if (process.argv[2] === '-delete') {
    deleteSeedProducts().then(() => {});
 
-} else if (process.argv[2] === '-import') {
+} else if (process.argv[2] === '-insert') {
    seedProducts().then(() => {});
 
 } else {
-   console.log(`➔  Seeded Data: This command requires second argument to be '-delete' or '-import'!`.yellow.bold.italic);
+   console.log(`➔  Seeded Data: This command requires second argument to be '-delete' or '-insert'!`.yellow.bold.italic);
    process.exit(0);
 }
