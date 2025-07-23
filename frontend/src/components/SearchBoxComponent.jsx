@@ -18,7 +18,7 @@ export default function SearchBoxComponent({onSearch}) {
             onChange={handleKeywordChange}
             value={keyword}
             placeholder="Search... "
-            className="p-2 border border-augmented-600 rounded-2xl focus:outline-none focus:ring-augmented-700 w-70"
+            className="p-2 border border-augmented-600 rounded-sm focus:outline-none focus:ring-augmented-700 w-70"
          />
       </form>
 

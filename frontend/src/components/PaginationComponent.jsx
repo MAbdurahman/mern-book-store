@@ -6,7 +6,7 @@ export default function PaginationComponent({pages,page, keyword = '', role = 'u
       pages > 1 &&(
          <div className=' flex justify-center mt-8'>
             <nav className='block'>
-               <ul className='flex pl-0 rounded list-none flex-wrap'>
+               <ul className='flex pl-0 list-none flex-wrap'>
                   {[...Array(pages).keys()].map((x)=>(
                      <li key={x + 1}>
                         <Link to={
@@ -18,7 +18,7 @@ export default function PaginationComponent({pages,page, keyword = '', role = 'u
                         }
                               className={`${
                                  x + 1 === page ?
-                                    "bg-augmented-600 text-augmented-100":"text-neutral-000 hover:bg-augmented-700 hover:text-neutral-100"
+                                    "bg-augmented-600 font-semibold text-augmented-600":"text-neutral-000 hover:bg-augmented-700 hover:text-neutral-100"
                               } first:ml-0 text-xs font-semibold flex w-8 h-8 mx-1 rounded-full items-center justify-center leading-tight relative border border-solid  border-augmented-600`}
 
                         >

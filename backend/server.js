@@ -11,7 +11,7 @@ colors.enabled = true;
 
 /************************* handling Uncaught exceptions *************************/
 process.on('uncaughtException', err => {
-   console.log(`uncaughtException ERROR: ${err.stack}`);
+   console.log(`uncaughtException ERROR: ${err.stack}`.red);
    console.log(`  ➔  Server:  Shutting down the due to Uncaught Exception!`.yellow);
    process.exit(1);
 });
@@ -34,7 +34,7 @@ const server = app.listen(PORT, () => {
 
 /********************** handling unhandled promise rejection **********************/
 process.on('unhandledRejection', err => {
-   console.log(`unhandledRejection ERROR: ${err.stack}`);
+   console.log(`unhandledRejection ERROR: ${err.stack}`.red);
    console.log(`  ➔  Server:  Shutting down due to Unhandled Promise Rejection!`.yellow);
    server.close(() => {
       process.exit(1);

@@ -58,11 +58,9 @@ export const getAllProducts = asyncHandler(async (req, res, next) => {
    res.status(200).json({
       success: true,
       message: 'Successfully retrieved products!',
-      data: {
-         products: products,
-         page: page,
-         pages: Math.ceil(count / pageSize)
-      }
+      products: products,
+      page: page,
+      pages: Math.ceil(count / pageSize)
    });
 });
 
