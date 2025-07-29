@@ -131,7 +131,7 @@
    body {
       min-width: 100dvw;
       max-width: 100dvw;
-      overflow: hidden;
+      overflow-x: hidden;
       font-family: var(--font-body), sans-serif;
       font-weight: 400;
       font-optical-sizing: auto;
@@ -145,6 +145,10 @@
 
    a {
       text-decoration: none;
+   }
+   .pagination {
+      display: inline-block;
+      background-color: var(--color-augmented-200) !important;
    }
 
    h1, h2, h3, h4, h5 {

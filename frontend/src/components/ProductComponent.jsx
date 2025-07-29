@@ -6,7 +6,7 @@ export default function ProductComponent({product}) {
 
    return (
       <div
-         className="relative flex w-full max-w-xs flex-col overflow-hidden rounded-2xl border border-neutral-500 shadow-lg transition-transform hover:scale-102 hover:shadow-xl">
+         className="relative flex w-full max-w-xs flex-col overflow-hidden rounded-sm border border-neutral-500 shadow-lg transition-transform hover:scale-102 hover:shadow-xl">
          <Link to={`/product/${product._id}`}>
             <img
                className="h-56 w-full object-center"
@@ -37,7 +37,7 @@ export default function ProductComponent({product}) {
             </div>
             <Link
                to={`/product/${product._id}`}
-               className="flex items-center justify-center gap-2 py-2 w-full rounded-lg bg-augmented-000 border-2 border-augmented-600 font-semibold transition hover:bg-augmented-600 hover:text-augmented-200"
+               className="flex items-center justify-center gap-2 py-2 w-full rounded-sm bg-augmented-000 border-2 border-augmented-600 font-semibold transition hover:bg-augmented-600 hover:text-augmented-600"
             >
                <FaEye size={20}/> Preview
             </Link>
