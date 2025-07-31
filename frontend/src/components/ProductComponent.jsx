@@ -17,12 +17,12 @@ export default function ProductComponent({product}) {
          <div className="p-4 space-y-3">
             <Link
                to={`/product/${product._id}`}
-               className="block text-lg font-semibold text-neutral-800 hover:text-augmented-600 underline overflow-hidden text-ellipsis whitespace-nowrap"
+               className="block text-lg font-semibold text-neutral-800 hover:text-augmented-500 underline overflow-hidden text-ellipsis whitespace-nowrap"
             >
                {product.productName}
             </Link>
             <div className="flex items-center justify-between">
-               <span className="text-lg font-bold text-gray-800">
+               <span className="text-lg font-mono font-bold text-gray-800">
                    ${product.price}
                </span>
                <div className="flex items-center space-x-1">
@@ -37,7 +37,7 @@ export default function ProductComponent({product}) {
             </div>
             <Link
                to={`/product/${product._id}`}
-               className="flex items-center justify-center gap-2 py-2 w-full rounded-sm bg-augmented-000 border-2 border-augmented-600 font-semibold transition hover:bg-augmented-600 hover:text-augmented-600"
+               className="flex items-center justify-center gap-2 py-2 w-full rounded-sm bg-augmented-000 border-2 border-augmented-600 font-semibold transition hover:bg-augmented-600 hover:text-augmented-500"
             >
                <FaEye size={20}/> Preview
             </Link>

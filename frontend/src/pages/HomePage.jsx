@@ -9,7 +9,7 @@ import useNotification from '../hooks/useNotification.jsx';
 import MessageComponent from '../components/MessageComponent.jsx';
 
 export default function HomePage() {
-   const { pageNumber, keyword: urlKeyword } = useParams;
+   const {pageNumber, keyword: urlKeyword} = useParams;
    const navigate = useNavigate();
    const {updateNotification} = useNotification();
 
@@ -20,27 +20,29 @@ export default function HomePage() {
       } else {
          navigate('/');
       }
-
    }
 
    const {data, isLoading, error} = useGetAllProductsQuery({
       keyword: urlKeyword || '',
-      pageNumber: pageNumber || 1,
+      pageNumber: pageNumber || 1
    });
-
-   console.log({data, isLoading, error});
 
    return (
       <Fragment>
-         <div className="px-4 py-6">
-            <SearchBoxComponent onSearch={handleOnSearch} />
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-               {data?.products?.map((product) => (
-                  <ProductComponent key={product._id} product={product} />
-               ))}
-            </div>
-            <PaginationComponent page={data?.page} pages={data?.pages} />
-         </div>
+         {isLoading ? (<LoaderComponent/>)
+            : error ? (updateNotification('error', error?.data?.message || error.error))
+               : (
+                  <div className="px-4 py-6">
+                     <SearchBoxComponent onSearch={handleOnSearch}/>
+                     <div
+                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        {data?.products?.map((product) => (
+                           <ProductComponent key={product._id} product={product}/>
+                        ))}
+                     </div>
+                     <PaginationComponent page={data?.page} pages={data?.pages}/>
+                  </div>
+               )}
       </Fragment>
    );
 };

@@ -95,7 +95,7 @@ const products = [
       "description":
          "J.D. Salinger’s iconic novel captures the voice of Holden Caulfield, a disenchanted teenager grappling with identity, alienation, and the transition to adulthood. His candid and often cynical narration provides a raw and intimate portrayal of adolescence, making it a defining work of modern literature.",
       "category": "classic",
-      "price": "9.49",
+      "price": "9.99",
       "numberInStock": 14,
       "rating": 0,
       "numberOfReviews": 0,
@@ -112,7 +112,7 @@ const products = [
       "description":
          "Kristin Hannah’s historical novel tells the story of two sisters in Nazi-occupied France, each fighting for survival in their own way. One joins the Resistance, while the other protects her family at home. A powerful tale of love, sacrifice, and the resilience of women during wartime.",
       "category": "historical",
-      "price": "12.49",
+      "price": "12.99",
       "numberInStock": 16,
       "rating": 0,
       "numberOfReviews": 0,
@@ -180,7 +180,7 @@ const products = [
       "description":
          "Charles Belfoure’s gripping novel follows an architect in Nazi-occupied Paris who designs hiding places for Jews. Initially driven by money, he becomes deeply involved in the resistance, risking his life for others. A compelling story of moral awakening, courage, and the complexities of human morality during wartime.",
       "category": "historical",
-      "price": "10.49",
+      "price": "10.99",
       "numberInStock": 0,
       "rating": 0,
       "numberOfReviews": 0,
@@ -197,7 +197,7 @@ const products = [
       "description":
       "Animal Farm is a satirical allegorical novella by George Orwell, published in 1945. It tells the story of farm animals who revolt against their human owner, aiming to create an equal society, but ultimately face betrayal and oppression under their own leaders, the pigs. It uses a story about farm animals to critique totalitarianism and reflect on the events of the Russian Revolution and Stalinist era",
       "category": "political satire",
-      "price": "10.49",
+      "price": "10.99",
       "numberInStock": 0,
       "rating": 0,
       "numberOfReviews": 0,
@@ -214,7 +214,7 @@ const products = [
       "description":
       "Escape from Freedom is a book by Erich Fromm, published in 1941, that explores the complex relationship between individual freedom and the psychological mechanisms that lead people to seek security through authoritarianism. Fromm distinguishes between 'freedom from' (negative freedom) and 'freedom to'(positive freedom), arguing that while modern society offers external freedoms, many individuals struggle with feelings of isolation and anxiety, often opting to relinquish their freedoms in favor of conformity and control.",
       "category": "social psychology",
-      "price": "10.49",
+      "price": "10.99",
       "numberInStock": 0,
       "rating": 0,
       "numberOfReviews": 0,
@@ -231,7 +231,7 @@ const products = [
       "description":
       "\"Mind, Self, and Society\" is a book by George Herbert Mead that explores how individual identity and consciousness are shaped through social interactions. It introduces the concept of symbolic interactionism, emphasizing that the self is a social process developed through communication and behavior within society.",
       "category": "sociology psychology",
-      "price": "10.49",
+      "price": "10.99",
       "numberInStock": 0,
       "rating": 0,
       "numberOfReviews": 0,
@@ -248,7 +248,7 @@ const products = [
       "description":
       "\"Propaganda\" is a book by Edward Bernays, published in 1928, that explores the techniques of public communication and the psychological manipulation of the masses. Bernays argues that propaganda is essential for shaping public opinion and maintaining democracy, presenting it as a tool for both social change and commercial success.",
       "category": " psychology, sociology, and business",
-      "price": "10.49",
+      "price": "10.99",
       "numberInStock": 0,
       "rating": 0,
       "numberOfReviews": 0,
@@ -265,7 +265,7 @@ const products = [
       "description":
       "The Art of War is an ancient Chinese military treatise attributed to Sun Tzu, dating back to the 5th century BC. It consists of 13 chapters that cover various aspects of warfare and strategy, emphasizing the importance of understanding both oneself and the enemy to achieve victory without necessarily engaging in battle.",
       "category": "philosophy, history, and nonfiction.",
-      "price": "10.49",
+      "price": "10.99",
       "numberInStock": 0,
       "rating": 0,
       "numberOfReviews": 0,
