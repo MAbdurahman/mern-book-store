@@ -6,6 +6,7 @@ import store from './store/store.js'
 import NotificationProvider from './context/notificationContext.jsx';
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from 'react-router-dom';
 import HomePage from './pages/HomePage.jsx';
+import ProductPage from './pages/ProductPage.jsx';
 
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -14,6 +15,7 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route path="/search/:keyword" element={<HomePage />} />
       <Route path="/page/:pageNumber" element={<HomePage />} />
       <Route path="/search/:keyword/page/:pageNumber" element={<HomePage />} />
+      <Route path="/product/:productId" element={<ProductPage />} />
    </Route>
 ));
 

@@ -34,9 +34,7 @@ export const createProduct = asyncHandler(async (req, res, next) => {
    res.status(201).json({
       success: true,
       message: 'Successfully created product!',
-      data: {
-         products: product
-      }
+      product: product
    });
 
 });
@@ -76,9 +74,8 @@ export const getSingleProduct = asyncHandler(async (req, res, next) => {
    res.status(200).json({
       success: true,
       message: 'Successfully found product!',
-      data: {
-         product: singleProduct
-      }
+      product: singleProduct
+
    });
 });
 
@@ -129,9 +126,8 @@ export const updateProduct = asyncHandler(async (req, res, next) => {
    res.status(200).json({
       success: true,
       message: 'Successfully updated product!',
-      data: {
-         products: product
-      }
+      product: product
+
    });
 
 });
@@ -148,12 +144,12 @@ export const deleteProduct = asyncHandler(async (req, res, next) => {
       await cloudinary.v2.uploader.destroy(product.images[i].public_id);
    }
 
-   await Product.deleteOne({ _id: product._id });
+   await Product.deleteOne({_id: product._id});
 
    res.status(200).json({
       success: true,
-      message: "Successfully deleted product!",
-      data: {}
+      message: 'Successfully deleted product!',
+      product: {}
    });
 
 });
@@ -196,8 +192,7 @@ export const createProductReview = asyncHandler(async (req, res, next) => {
    res.status(201).json({
       success: true,
       message: 'Successfully created review!',
-      data: {
-         review: review
-      }
+      review: review
+
    });
 });
