@@ -8,6 +8,7 @@ import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} fr
 import HomePage from './pages/HomePage.jsx';
 import ProductPage from './pages/ProductPage.jsx';
 import SignInPage from './pages/SignInPage.jsx';
+import SignUpPage from './pages/SignUpPage.jsx';
 
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -18,6 +19,7 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route path="/search/:keyword/page/:pageNumber" element={<HomePage />} />
       <Route path="/product/:productId" element={<ProductPage />} />
       <Route path="/sign-in" element={<SignInPage />} />
+      <Route path="/sign-up" element={<SignUpPage />} />
    </Route>
 ));
 
