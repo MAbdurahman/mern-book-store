@@ -69,25 +69,27 @@ export default function HeaderComponent() {
               </span>
                   )}
                </Link>
-               {userInfo ? (
+
+               {userInfo && userInfo.role === 'user' && (
                   <div className=" relative">
                      <Link
                         to="/get-user-profile"
                         className=" flex items-center gap-2 p-2 md:p-0 focus:outline-none"
                      >
-                        <FaUser /> {getFirstName(userInfo.username)}
+                        <FaUser />{getFirstName(userInfo.username)}
                      </Link>
                   </div>
-               ) : (
+               )}
+               {!userInfo && (
                   <Link to="/sign-in" className="flex items-center gap-2 p-2 md:p-0">
-                     <FaUser/> Sign In
+                     <FaUser/>Sign In
                   </Link>
                )}
                {userInfo && userInfo.role === 'admin' && (
                   <div className=" relative">
                      <button
                         onClick={() => setOpenAdminMenu(!openAdminMenu)}
-                        className=" flex items-center gap-1 border border-gray-300 rounded-md hover:border-gray-500 hover:bg-gray-100 hover:text-black transition-all p-1 max-md:mx-2">
+                        className=" flex items-center border border-gray-300 rounded-md hover:border-gray-500 hover:bg-gray-100 hover:text-black transition-all p-1 max-md:mx-2">
                         {getFirstName(userInfo.username)}
                         <FaChevronDown className="mt-0.5"/>
                      </button>
@@ -121,7 +123,7 @@ export default function HeaderComponent() {
                )}
                {userInfo ? (
                   <button onClick={handleSignOut} className=" p-2">
-                     <FaSignOutAlt/>
+                     <FaSignOutAlt size={20}/>
                   </button>
                ) : (
                   ''

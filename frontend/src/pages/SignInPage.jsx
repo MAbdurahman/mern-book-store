@@ -26,24 +26,37 @@ export default function SignInPage() {
 
    async function handleSubmit(event) {
       event.preventDefault();
-      console.log('handleSubmit');
 
+      try {
+         const response = await signIn({email, password}).unwrap();
+         dispatch(setCredentials({...response}));
+         navigate(redirect);
+
+      } catch (err) {
+         updateNotification('error', err?.data?.message || err.error);
+      }
    }
 
    function handleShowPassword() {
-      console.log('handleShowPassword');
+      setShowPassword(!showPassword);
    }
 
-   return (
-      <FormContainerComponent>
-         <h2 className="text-3xl font-bold mb-4 mt-4">Sign In</h2>
+   useEffect(() => {
+      if (userInfo) {
+         navigate(redirect);
+      }
+   }, [navigate, redirect, userInfo]);
+
+   return (<FormContainerComponent>
+         <h2 className="text-3xl uppercase text-center font-bold mb-4 mt-4">Sign
+            In</h2>
          <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="space-y-2">
                <label
                   htmlFor="email"
                   className="block text-sm font-medium text-gray-700"
                >
-                  Email Address
+                  Email
                </label>
                <input
                   type="email"
@@ -51,7 +64,7 @@ export default function SignInPage() {
                   placeholder="Enter email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-augmented-600"
                />
             </div>
 
@@ -69,12 +82,12 @@ export default function SignInPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-sm
-            focus:outline-none focus:ring-2 focus:ring-primary"
+            focus:outline-none focus:ring-2 focus:ring-augmented-600"
                />
                <button
                   type="button"
                   onClick={handleShowPassword}
-                  className="absolute inset-y-0 right-2 top-5 text-primary"
+                  className="absolute inset-y-0 right-2 top-5 text-augmented-900"
                >
                   {showPassword ? <FaEyeSlash/> : <FaEye/>}
                </button>
@@ -82,23 +95,21 @@ export default function SignInPage() {
             <button
                type="submit"
                disabled={isLoading}
-               className="w-full bg-primary text-white py-2 px-2 rounded-sm hover:bg-secondary focus:outline-none
-        focus:right-2 focus:ring-secondary
-        "
+               className="w-full bg-augmented-700 text-white font-bold py-2 px-3 rounded-sm hover:bg-augmented-600 focus:outline-none focus:right-2 focus:ring-augmented-600"
             >
-               Sign In
+               SIGN IN
             </button>
             {isLoading && <LoaderComponent/>}
          </form>
 
          <div className="py-3">
-            <p className="text-sm text-gray-600">
-               New User ?{' '}
+            <p className="text-sm text-augmented-900 font-semibold text-right">
+               Do not have an account?{' '}
                <Link
-                  to={redirect ? `/register?redirect=${redirect}` : '/register'}
-                  className="text-primary hover:text-secondary"
+                  to={redirect ? `/sign-up?redirect=${redirect}` : '/sign-up'}
+                  className="text-augmented-800 font-semibold hover:text-augmented-400"
                >
-                  Register
+                  Sign Up
                </Link>
             </p>
          </div>
