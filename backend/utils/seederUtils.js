@@ -14,8 +14,8 @@ colors.enabled = true;
 /********************** connect MongoDB and Cloudinary **********************/
 connectDatabase().then(() => {});
 
-/********************** seed products to the database **********************/
-const seedProducts = async () => {
+/********************** insert products to the database **********************/
+const insertSeedProducts = async () => {
    try {
       await Product.deleteMany();
       await User.deleteMany({});
@@ -54,7 +54,7 @@ if (process.argv[2] === '-delete') {
    deleteSeedProducts().then(() => {});
 
 } else if (process.argv[2] === '-insert') {
-   seedProducts().then(() => {});
+   insertSeedProducts().then(() => {});
 
 } else {
    console.log(`➔  Seeded Data: This command requires second argument to be '-delete' or '-insert'!`.yellow.bold.italic);

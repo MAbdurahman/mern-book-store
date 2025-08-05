@@ -4,6 +4,8 @@ import colors from "colors";
 import app from './app/app.js';
 import connectDatabase from './config/databaseConfig.js';
 import connectCloudinary from './config/cloudinaryConfig.js';
+import {errorHandlerMiddleware, notFoundMiddleware} from './middlewares/errorMiddleware.js';
+
 
 /************************* configure setup *************************/
 dotenv.config({path: 'backend/config/config.env'});
@@ -26,6 +28,10 @@ const ADDENDUM = `\t\t...press Ctrl-C to terminate.\n`.white;
 connectDatabase().then(() => {});
 // connectCloudinary().then(() => {});
 
+
+/************************* error handling Middleware *************************/
+app.use(notFoundMiddleware);
+app.use(errorHandlerMiddleware);
 /************************* app listening *************************/
 const server = app.listen(PORT, () => {
    console.log(`  ➔  Server:  Listening at http://127.0.0.1:${PORT}${API_URL} in ${NODE_ENV} mode!`.yellow);

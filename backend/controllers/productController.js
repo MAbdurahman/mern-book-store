@@ -159,7 +159,7 @@ export const createProductReview = asyncHandler(async (req, res, next) => {
 
    const product = await Product.findById(req.params.productId);
    if (!product) {
-      return next(new ErrorHandler(`Product does not exist with Id: ${re.params.productId}`, 404));
+      return next(new ErrorHandler(`Product does not exist with Id: ${req.params.productId}`, 404));
    }
 
    const userOrders = await Order.find({user: req.user._id});

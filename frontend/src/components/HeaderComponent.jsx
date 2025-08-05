@@ -28,7 +28,6 @@ export default function HeaderComponent() {
 
 
    async function handleSignOut() {
-      console.log('handleSignOut');
       try {
          await signOutApiCall().unwrap();
          dispatch(signOut());
