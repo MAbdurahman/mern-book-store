@@ -76,8 +76,7 @@ export default function SignUpPage() {
                   placeholder="Enter first and last name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
-            focus:ring-2 focus:ring-primary"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-augmented-600"
                />
             </div>
             <div className="space-y-2">
@@ -93,8 +92,7 @@ export default function SignUpPage() {
                   placeholder="Enter email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none
-            focus:ring-2 focus:ring-primary"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-augmented-600"
                />
             </div>
 
@@ -111,13 +109,12 @@ export default function SignUpPage() {
                   placeholder="Enter Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md
-            focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-augmented-600"
                />
                <button
                   type="button"
                   onClick={handleShowPassword}
-                  className="absolute inset-y-0 right-2 top-5 text-primary"
+                  className="absolute inset-y-0 right-2 top-5 text-augmented-900"
                >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                </button>
@@ -136,13 +133,12 @@ export default function SignUpPage() {
                   placeholder="Confirm Password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md
-            focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-augmented-600"
                />
                <button
                   type="button"
                   onClick={handleConfirmPassword}
-                  className="absolute inset-y-0 right-2 top-5 text-primary"
+                  className="absolute inset-y-0 right-2 top-5 text-augmented-900"
                >
                   {showConfirmPassword ? <FaEyeSlash /> :<FaEye />}
                </button>

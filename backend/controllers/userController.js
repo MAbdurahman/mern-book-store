@@ -15,10 +15,10 @@ export const signUpUser = asyncHandler(async (req, res, next) => {
    const {username, email, password} = req.body;
 
    if (!username) {
-      return next(new ErrorHandler('Full name is required!', 400));
+      return next(new ErrorHandler('First and last names are required!', 400));
    }
    if (username.length >= 33) {
-      return next(new ErrorHandler('Full name cannot exceed 32 characters!', 406));
+      return next(new ErrorHandler('First and last names cannot exceed 32 characters!', 406));
    }
    if (!validateName(username)){
       return next(new ErrorHandler('Enter your first and last name!', 406));
