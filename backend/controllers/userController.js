@@ -1,5 +1,4 @@
 /************************* imports *************************/
-import validator from 'validator';
 import User from '../models/userModel.js';
 import asyncHandler from '../utils/asyncHandlerUtils.js';
 import ErrorHandler from '../utils/errorHandlerUtils.js';

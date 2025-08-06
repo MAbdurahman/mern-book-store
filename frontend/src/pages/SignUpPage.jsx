@@ -9,7 +9,7 @@ import useNotification from '../hooks/useNotification.jsx';
 import {FaEyeSlash, FaEye} from 'react-icons/fa6';
 
 export default function SignUpPage() {
-   const [name, setName] = useState('');
+   const [username, setUsername] = useState('');
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
    const [confirmPassword, setConfirmPassword] = useState('');
@@ -35,7 +35,7 @@ export default function SignUpPage() {
 
       } else {
          try {
-            const response = await signUp({name, email, password}).unwrap();
+            const response = await signUp({username, email, password}).unwrap();
             dispatch(setCredentials({...response}));
             navigate(redirect);
 
@@ -65,7 +65,7 @@ export default function SignUpPage() {
          <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="space-y-2">
                <label
-                  htmlFor="name"
+                  htmlFor="username"
                   className="block text-sm font-medium text-gray-700"
                >
                   Full name
@@ -74,8 +74,8 @@ export default function SignUpPage() {
                   type="text"
                   id="name"
                   placeholder="Enter first and last name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-augmented-600"
                />
             </div>
