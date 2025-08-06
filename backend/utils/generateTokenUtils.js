@@ -11,7 +11,7 @@ const generateToken = (res, user) => {
       expiresIn: process.env.JWT_LIFETIME
    });
 
-   res.cookie('book_store', token, {
+   res.cookie('eBookStore', token, {
       history: true,
       sameSite: "strict",
       secure: process.env.NODE_ENV === 'production',

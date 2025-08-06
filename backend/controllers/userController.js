@@ -91,7 +91,7 @@ export const signInUser = asyncHandler(async (req, res, next) => {
 });
 
 export const signOutUser = asyncHandler(async (req, res, next) => {
-   res.clearCookie('book_store').status(200).json({
+   res.clearCookie('eBookStore').status(200).json({
       success: true,
       message: 'Successfully signed out!',
    });
