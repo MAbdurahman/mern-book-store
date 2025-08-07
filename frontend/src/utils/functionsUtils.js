@@ -93,3 +93,29 @@ export function formatDate(ISODate) {
       day: 'numeric'
    });
 }
+
+export function formatWithDecimals(number) {
+   return (Math.round(number * 100) / 100).toFixed(2);
+}
+
+export function updateCart(state) {
+   const orderItemsPrice = state.orderItems.reduce(
+      (acc, orderItem) => acc + (orderItem.price * 100 * orderItem.quantity) / 100,
+      0
+   );
+   state.itemsPrice = formatWithDecimals(orderItemsPrice);
+
+   const shippingPrice = orderItemsPrice > 100 ? 0 : 10;
+
+   state.shippingPrice = formatWithDecimals(shippingPrice);
+
+   const taxPrice = 0.15 * orderItemsPrice;
+   state.taxPrice = formatWithDecimals(taxPrice);
+
+   const totalPrice = orderItemsPrice + shippingPrice + taxPrice;
+   state.totalPrice = formatWithDecimals(totalPrice);
+
+   localStorage.setItem('eBook_Store_Cart', JSON.stringify(state));
+
+   return state;
+}
