@@ -103,7 +103,7 @@ export function updateCart(state) {
       (acc, orderItem) => acc + (orderItem.price * 100 * orderItem.quantity) / 100,
       0
    );
-   state.itemsPrice = formatWithDecimals(orderItemsPrice);
+   state.orderItemsPrice = formatWithDecimals(orderItemsPrice);
 
    const shippingPrice = orderItemsPrice > 100 ? 0 : 10;
 
