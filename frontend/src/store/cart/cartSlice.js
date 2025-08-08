@@ -10,6 +10,16 @@ const cartSlice = createSlice({
    initialState,
    reducers: {
       addToCart: (state, action) => {
+         const {user, rating, numberOfReviews, reviews, ...item} = action.payload;
+         const existingItem = state.orderItems.find((product) => product._id === item._id);
+
+         if (existingItem) {
+            state.orderItems = state.orderItems.map((product) => product._id === existingItem._id ? item : product)
+
+         } else {
+            state.orderItems = [...state.orderItems, item];
+         }
+         return updateCart(state, item);
       },
       removeFromCart: (state, action) => {
       },
