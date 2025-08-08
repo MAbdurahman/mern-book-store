@@ -87,7 +87,7 @@ export default function SignUpPage() {
                   Email
                </label>
                <input
-                  type="email"
+                  type="text"
                   id="email"
                   placeholder="Enter email"
                   value={email}

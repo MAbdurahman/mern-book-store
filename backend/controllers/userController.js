@@ -66,8 +66,14 @@ export const signInUser = asyncHandler(async (req, res, next) => {
    if (!email) {
       return next(new ErrorHandler('Email is required!', 400));
    }
+   if (!validateEmail(email)) {
+      return next(new ErrorHandler('Enter a valid email address!', 406));
+   }
    if (!password) {
       return next(new ErrorHandler('Password is required!', 400));
+   }
+   if (!validatePassword(password)) {
+      return next(new ErrorHandler('Password must contain at least 8 characters, a number, a symbol, a lowercase an uppercase letter!', 406));
    }
 
    const user = await User.findOne({email});
@@ -106,12 +112,10 @@ export const getUserProfile = asyncHandler(async (req, res, next) => {
    res.status(200).json({
       success: true,
       message: 'Successfully retrieved profile!',
-      data: {
-         _id: user._id,
-         username: user.username,
-         email: user.email,
-         role: user.role
-      }
+      _id: user._id,
+      username: user.username,
+      email: user.email,
+      role: user.role
    });
 });
 
@@ -150,12 +154,10 @@ export const updateUserProfile = asyncHandler(async (req, res, next) => {
       res.status(200).json({
          success: true,
          message: 'Successfully updated user!',
-         data: {
-            _id: updatedUser._id,
-            username: updatedUser.username,
-            email: updatedUser.email,
-            role: updatedUser.role,
-         }
+         _id: updatedUser._id,
+         username: updatedUser.username,
+         email: updatedUser.email,
+         role: updatedUser.role
       });
 });
 
@@ -169,9 +171,7 @@ export const getAllUsers = asyncHandler(async (req, res, next) => {
    res.status(200).json({
       success: true,
       message: 'Successfully retrieved all users.',
-      data: {
-         users
-      }
+      users
    });
 });
 
@@ -185,9 +185,7 @@ export const getSingleUser = asyncHandler(async (req, res, next) => {
    res.status(200).json({
       success: true,
       message: 'Successfully retrieved user!',
-      data: {
-         user
-      }
+      user
    });
 });
 
@@ -226,12 +224,10 @@ export const updateUser = asyncHandler(async (req, res, next) => {
    res.status(200).json({
       success: true,
       message: 'Successfully updated user!',
-      data: {
-         _id: updatedUser._id,
-         username: updatedUser.username,
-         email: updatedUser.email,
-         role: updatedUser.role,
-      }
+      _id: updatedUser._id,
+      username: updatedUser.username,
+      email: updatedUser.email,
+      role: updatedUser.role
    });
 });
 
@@ -247,6 +243,6 @@ export const deleteUser = asyncHandler(async (req, res, next) => {
    res.status(200).json({
       success: true,
       message: 'Successfully deleted user!',
-      data: {}
+      user: {}
    });
 });

@@ -59,7 +59,7 @@ export default function SignInPage() {
                   Email
                </label>
                <input
-                  type="email"
+                  type="text"
                   id="email"
                   placeholder="Enter email"
                   value={email}
