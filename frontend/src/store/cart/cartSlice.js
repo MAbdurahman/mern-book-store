@@ -22,15 +22,22 @@ const cartSlice = createSlice({
          return updateCart(state, item);
       },
       removeFromCart: (state, action) => {
+         state.orderItems = state.orderItems.filter((product) => product._id === action.payload._id);
+         return updateCart(state);
       },
       saveShippingAddress: (state, action) => {
+         state.shippingAddress = action.payload;
+         localStorage.setItem('eBook_Store_Cart', JSON.stringify(state));
       },
       savePaymentMethod: (state, action) => {
+         state.paymentMethod = action.payload;
+         localStorage.setItem('eBook_Store_Cart', JSON.stringify(state));
       },
       clearOrderItems: (state, action) => {
+         state.orderItems = [];
+         localStorage.setItem('eBook_Store_Cart', JSON.stringify(state));
       },
-      resetCart: (state) => {
-      }
+      resetCart: (state) => (state = initialState),
    }
 });
 
