@@ -1,4 +1,4 @@
-import creatSlice, {createSlice} from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 import {updateCart} from '../../utils/functionsUtils.js';
 
 const initialState = localStorage.getItem('eBook_Store_Cart')

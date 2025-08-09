@@ -3,6 +3,7 @@ import {useNavigate, Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {useSignOutMutation} from '../store/users/usersSlice.js';
 import {signOut} from '../store/auth/authSlice.js';
+import {removeFromCart, resetCart} from '../store/cart/cartSlice.js';
 import {getFirstName} from '../utils/functionsUtils.js';
 import {
    FaShoppingCart,
@@ -19,18 +20,17 @@ export default function HeaderComponent() {
    const navigate = useNavigate();
 
    const {userInfo} = useSelector((state) => state.auth);
+   const {orderItems} = useSelector((state) => state.cart);
    const [signOutApiCall] = useSignOutMutation();
 
    const [openMenu, setOpenMenu] = useState(false);
    const [openAdminMenu, setOpenAdminMenu] = useState(false);
 
-   const cartItems = 0;
-
-
    async function handleSignOut() {
       try {
          await signOutApiCall().unwrap();
          dispatch(signOut());
+         dispatch(resetCart());
          navigate('/sign-in');
 
       } catch (err) {
@@ -58,13 +58,13 @@ export default function HeaderComponent() {
                   to="/cart"
                >
                   <FaShoppingCart size={20}/> Cart
-                  {cartItems.length > 0 && (
+                  {orderItems.length > 0 && (
                      <span
                         className="absolute -top-2 -right-2 bg-augmented-200 text-augmented-600 text-xs
                 w-4 h-4 flex items-center justify-center rounded-full max-sm:left-12 max-sm:top-0
                 "
                      >
-                {cartItems.reduce((a, c) => a + c.qty, 0)}
+                {orderItems.reduce((acc, curr) => acc + curr.quantity, 0)}
               </span>
                   )}
                </Link>

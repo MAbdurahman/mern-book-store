@@ -10,6 +10,7 @@ import {
    useGetSingleProductQuery,
    useCreateProductReviewMutation
 } from '../store/products/productsSlice.js';
+import {addToCart} from '../store/cart/cartSlice.js';
 import {IoChevronBackCircleSharp} from 'react-icons/io5';
 import {FaWindowClose} from 'react-icons/fa';
 
@@ -38,7 +39,8 @@ export default function ProductPage() {
    const [createProductReview, {isLoading: loadingProductReview}] = useCreateProductReviewMutation();
 
    function handleAddToCart() {
-      console.log('handleAddToCart');
+      dispatch(addToCart({ ...product, quantity }));
+      navigate('/cart');
    }
 
    async function handleSubmit(event) {
