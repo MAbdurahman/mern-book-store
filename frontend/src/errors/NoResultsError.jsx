@@ -3,7 +3,7 @@ import NoResultsImage from '../assets/img/no-results.png';
 export default function NoResultsError() {
    return (
       <div
-         className="flex flex-col h-screen justify-center items-center bg-gray-100">
+         className="flex flex-col h-screen justify-center items-center bg-transparent">
          <div className="flex flex-col items-center">
             <img className='max-h-32' src={NoResultsImage} alt="Sad Face" />
             <p className="text-2xl font-semibold tracking-wide text-center  text-gray-600 mb-6">Sorry, we couldn't find any results</p>

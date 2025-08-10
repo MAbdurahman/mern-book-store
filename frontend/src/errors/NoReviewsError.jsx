@@ -4,7 +4,7 @@ export default function NoReviewsError() {
 
    return (
       <div
-         className="flex flex-col h-screen justify-center items-center bg-gray-100">
+         className="flex flex-col h-screen justify-center items-center bg-transparent">
          <div className="flex flex-col items-center">
             <img className='max-h-32' src={NeutralFaceImage} alt="Neutral Face" />
             <p className="text-2xl font-semibold tracking-wide text-center  text-gray-600 mb-6">No Reviews for product</p>

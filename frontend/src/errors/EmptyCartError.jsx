@@ -5,7 +5,7 @@ export default function EmptyCartError() {
 
    return (
       <div
-         className="flex flex-col h-screen justify-center items-center bg-gray-100">
+         className="flex flex-col h-full mt-8 justify-items-center items-center bg-transparent">
          <div className="flex flex-col items-center">
             <img className='max-h-32 mb-2' src={EmptyCartImage} alt="Empty Cart image" />
             <p className="text-2xl font-semibold capitalize tracking-wide text-center  text-gray-600 mb-6">Your cart is empty!</p>
