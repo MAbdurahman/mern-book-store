@@ -56,7 +56,7 @@ const orderSchema = new Schema({
          required: true,
          default: false
       },
-      paidAt: {
+      paidDate: {
          type: Date
       },
       isDelivered: {
@@ -64,7 +64,7 @@ const orderSchema = new Schema({
          required: true,
          default: false
       },
-      deliveredAt: {
+      deliveredDate: {
          type: Date
       }
    },
