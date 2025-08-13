@@ -12,6 +12,7 @@ export default function SignInPage() {
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
    const [showPassword, setShowPassword] = useState(false);
+   const [loading, setLoading] = useState(true);
 
    const dispatch = useDispatch();
    const navigate = useNavigate();
@@ -26,6 +27,7 @@ export default function SignInPage() {
 
    async function handleSubmit(event) {
       event.preventDefault();
+
 
       try {
          const response = await signIn({email, password}).unwrap();
@@ -97,9 +99,9 @@ export default function SignInPage() {
                disabled={isLoading}
                className="w-full bg-augmented-700 text-white font-bold py-2 px-3 rounded-sm hover:bg-augmented-600 focus:outline-none focus:right-2 focus:ring-augmented-600"
             >
-               SIGN IN
+              SIGN IN
             </button>
-            {isLoading && <LoaderComponent/>}
+
          </form>
 
          <div className="py-3">
@@ -113,6 +115,7 @@ export default function SignInPage() {
                </Link>
             </p>
          </div>
+         {isLoading && <LoaderComponent/>}
       </FormContainerComponent>
 
    );

@@ -32,7 +32,7 @@ async function getPaypalAccessToken() {
    return paypalData.access_token;
 }
 
-export async function checkIfNewTransaction(orderModel, paypalTransactionId) {
+export async function verifyNewTransaction(orderModel, paypalTransactionId) {
    try {
       const orders = await orderModel.find({
          "paymentResult.id": paypalTransactionId,

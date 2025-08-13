@@ -36,6 +36,11 @@ const orderSchema = new Schema({
          update_time: {type: String},
          email_address: {type: String}
       },
+      orderedItemsPrice: {
+         type: Number,
+         required: true,
+         default: 0.0
+      },
       taxPrice: {
          type: Number,
          required: true,
@@ -58,6 +63,12 @@ const orderSchema = new Schema({
       },
       paidDate: {
          type: Date
+      },
+      orderStatus: {
+         type: String,
+         required: true,
+         enum: ['Processing', 'Shipped', 'Delivered'],
+         default: 'Processing'
       },
       isDelivered: {
          type: Boolean,

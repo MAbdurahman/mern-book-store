@@ -3,19 +3,19 @@ export function formatWithDecimals(number) {
 }
 
 export function calculatePrices(orderItems) {
-   const itemsPrice = formatWithDecimals(
+   const orderedItemsPrice = formatWithDecimals(
       orderItems.reduce((acc, orderItem) => acc + orderItem.price * orderItem.quantity, 0)
    );
 
-   const shippingPrice = formatWithDecimals(itemsPrice > 100 ? 0 : 10);
+   const shippingPrice = formatWithDecimals(orderedItemsPrice > 100 ? 0 : 10);
 
-   const taxPrice = formatWithDecimals(Number((0.0975 * itemsPrice).toFixed(2)));
+   const taxPrice = formatWithDecimals(Number((0.0975 * orderedItemsPrice).toFixed(2)));
 
    const totalPrice = (
-      Number(itemsPrice) +
+      Number(orderedItemsPrice) +
       Number(shippingPrice) +
       Number(taxPrice)
    ).toFixed(2);
 
-   return { itemsPrice, shippingPrice, taxPrice, totalPrice };
+   return { orderedItemsPrice, shippingPrice, taxPrice, totalPrice };
 }

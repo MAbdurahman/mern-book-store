@@ -151,7 +151,7 @@ export default function SignUpPage() {
             >
                SIGN UP
             </button>
-            {isLoading && <LoaderComponent />}
+
          </form>
 
          <div className="py-3">
@@ -165,6 +165,7 @@ export default function SignUpPage() {
                </Link>
             </p>
          </div>
+         {isLoading && <LoaderComponent />}
       </FormContainerComponent>
 
    );

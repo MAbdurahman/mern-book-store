@@ -193,7 +193,7 @@ export const updateUser = asyncHandler(async (req, res, next) => {
    const user = await User.findById(req.params.userId);
 
    if (!user) {
-      return next(new ErrorHandler(`User is not found with id: ${req.params.id}`));
+      return next(new ErrorHandler(`User is not found with id: ${req.params.id}`, 404));
    }
 
    if (req.body.username && req.body.username.length >= 33) {
