@@ -139,17 +139,29 @@ export const updateOrderToPaid = asyncHandler(async (req, res, next) => {
 });
 
 export const updateOrderToDelivered = asyncHandler(async (req, res, next) => {
+   const order = await Order.findById(req.params.id);
+   if (!order) {
+      return next(new ErrorHandler('Order not found with this ID', 404));
+   }
+
+   order.isDelivered = true;
+   order.deliveredDate = Date.now();
+
+   const updatedOrder = await order.save();
+
    res.status(200).json({
       success: true,
-      message: 'Order Item Updated Successfully',
-      data: {}
+      message: 'Order item successfully updated!',
+      updatedOrder
    });
 });
 
 export const getAllUsersOrders = asyncHandler(async (req, res, next) => {
+   const orders = await Order.find({}.populate('user', 'id username'));
+
    res.status(200).json({
       success: true,
       message: 'Order Item Found',
-      data: {}
+      orders
    });
 });
