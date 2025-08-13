@@ -56,12 +56,30 @@ export const addOrderItems = asyncHandler(async (req, res, next) => {
 
 });
 
-
-export const getOrderById = asyncHandler(async (req, res, next) => {
+export const getUserOrders = asyncHandler(async (req, res, next) => {
+   const orders = await Order.find({ user: req.user._id });
    res.status(200).json({
       success: true,
-      message: 'Order Item Found',
-      data: {}
+      message: 'Orders retrieved successfully!',
+      orders
+   });
+});
+
+
+export const getSingleOrder = asyncHandler(async (req, res, next) => {
+   const order = await Order.findById(req.params.id).populate(
+      'user',
+      'username email'
+   );
+
+   if (!order) {
+      return next(new ErrorHandler('No Order found with this ID', 404));
+   }
+
+   res.status(200).json({
+      success: true,
+      message: 'Order successfully found!',
+      order,
    });
 
 });
@@ -82,7 +100,7 @@ export const updateOrderToDelivered = asyncHandler(async (req, res, next) => {
    });
 });
 
-export const getMyOrders = asyncHandler(async (req, res, next) => {
+export const getUserOrders = asyncHandler(async (req, res, next) => {
    res.status(200).json({
       success: true,
       message: 'Order Item Found',

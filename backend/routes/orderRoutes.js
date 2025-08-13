@@ -4,8 +4,8 @@ import {authenticateUser, authorizeRole} from '../middlewares/authMiddleware.js'
 import {
    addOrderItems,
    getAllUsersOrders,
-   getMyOrders,
-   getOrderById,
+   getUserOrders,
+   getSingleOrder,
    updateOrderToPaid,
    updateOrderToDelivered
 } from '../controllers/orderController.js';
@@ -18,9 +18,9 @@ const router = express.Router();
 router.post('/', authenticateUser, addOrderItems);
 router.get('/',  authenticateUser, authorizeRole('admin'), getAllUsersOrders);
 
-router.get('/my-orders', authenticateUser, getMyOrders);
+router.get('/my-orders', authenticateUser, getUserOrders);
 
-router.get('/:orderId', authenticateUser, getOrderById);
+router.get('/:orderId', authenticateUser, getSingleOrder);
 router.put('/:orderId/pay', authenticateUser, updateOrderToPaid);
 router.put('/:orderId/delivered', authenticateUser, authorizeRole('admin'), updateOrderToDelivered);
 
