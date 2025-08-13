@@ -18,7 +18,7 @@ const router = express.Router();
 router.post('/', authenticateUser, addOrderItems);
 router.get('/',  authenticateUser, authorizeRole('admin'), getAllUsersOrders);
 
-router.get('/my-orders', authenticateUser, getUserOrders);
+router.get('/user-orders', authenticateUser, getUserOrders);
 
 router.get('/:orderId', authenticateUser, getSingleOrder);
 router.put('/:orderId/pay', authenticateUser, updateOrderToPaid);

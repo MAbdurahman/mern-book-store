@@ -46,11 +46,13 @@ import homeRoute from '../routes/homePageRoute.js';
 import productRoutes from '../routes/productRoutes.js';
 import userRoutes from '../routes/userRoutes.js';
 import orderRoutes from '../routes/orderRoutes.js';
+import paymentRoute from '../routes/paypalRoute.js';
 
 /****************************** routes ******************************/
 app.use('/api/v1.0/', homeRoute);
 app.use('/api/v1.0/products', productRoutes);
 app.use('/api/v1.0/users', userRoutes);
 app.use('/api/v1.0/orders', orderRoutes);
+app.use('api/v1.0/config/paypal',paymentRoute);
 
 export default app;
