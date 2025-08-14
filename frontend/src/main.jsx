@@ -10,6 +10,12 @@ import ProductPage from './pages/ProductPage.jsx';
 import SignInPage from './pages/SignInPage.jsx';
 import SignUpPage from './pages/SignUpPage.jsx';
 import CartPage from './pages/CartPage.jsx';
+import PrivateRouteComponent from './components/PrivateRouteComponent.jsx';
+import ShippingPage from './pages/ShippingPage.jsx';
+import OrderPage from './pages/OrderPage.jsx';
+import PaymentPage from './pages/PaymentPage.jsx';
+import PlaceOrderPage from './pages/PlaceOrderPage.jsx';
+import ProfilePage from './pages/ProfilePage.jsx';
 
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -22,6 +28,14 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route path="/sign-in" element={<SignInPage />} />
       <Route path="/sign-up" element={<SignUpPage />} />
       <Route path="/cart" element={<CartPage />} />
+
+      <Route path="" element={<PrivateRouteComponent />} >
+         <Route path="/shipping" element={<ShippingPage />} />
+         <Route path="/payment" element={<PaymentPage />} />
+         <Route path="/place-order" element={<PlaceOrderPage />} />
+         <Route path="/order/:orderId" element={<OrderPage />} />
+         <Route path="/profile" element={<ProfilePage />} />
+      </Route>
    </Route>
 ));
 

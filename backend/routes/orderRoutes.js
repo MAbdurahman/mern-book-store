@@ -7,7 +7,8 @@ import {
    getUserOrders,
    getSingleOrder,
    updateOrderToPaid,
-   updateOrderToDelivered
+   updateOrderToDelivered,
+   deleteOrder
 } from '../controllers/orderController.js';
 
 
@@ -23,5 +24,6 @@ router.get('/user-orders', authenticateUser, getUserOrders);
 router.get('/:orderId', authenticateUser, getSingleOrder);
 router.put('/:orderId/pay', authenticateUser, updateOrderToPaid);
 router.put('/:orderId/delivered', authenticateUser, authorizeRole('admin'), updateOrderToDelivered);
+router.delete('/:orderId', authenticateUser, authorizeRole('admin'), deleteOrder);
 
 export default router;
