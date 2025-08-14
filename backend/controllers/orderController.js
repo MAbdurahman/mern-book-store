@@ -145,6 +145,7 @@ export const updateOrderToDelivered = asyncHandler(async (req, res, next) => {
    }
 
    order.isDelivered = true;
+   order.orderStatus = req.body.status;
    order.deliveredDate = Date.now();
 
    const updatedOrder = await order.save();
@@ -165,3 +166,25 @@ export const getAllUsersOrders = asyncHandler(async (req, res, next) => {
       orders
    });
 });
+
+export const deleteOrder = asyncHandler(async (req, res, next) => {
+   const order = await Order.findById(req.params.id);
+   if (!order) {
+      return next(new ErrorHandler('Order not found with this ID', 404));
+   }
+
+   await order.remove();
+
+   res.status(200).json({
+      success: true,
+      message: 'Order successfully deleted!',
+   })
+});
+
+async function updateNumberInStock(id, quantity) {
+   const product = await Product.findById(id);
+
+   product.stock = product.stock - quantity;
+
+   await product.save({ validateBeforeSave: false });
+}
